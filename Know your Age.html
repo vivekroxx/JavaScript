@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Age</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let x = new Date();
+    let y = new Date(); 
+    y.setDate(prompt("Enter Date"));
+    y.setMonth(prompt("Enter Month") - 1);
+    y.setFullYear(prompt("Enter Year"));
+    alert(`Your are ${Math.floor((x-y)/31556926000)} Years Old`);
+</script>
+</html>

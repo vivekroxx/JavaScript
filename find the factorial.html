@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+</head>
+
+<body>
+    <script>
+        const num = Number(prompt("Enter a Number: "));
+
+        if (num < 0) {
+            alert(`The Factorial of Negative Number is Not Exist`);
+        }
+
+        else if (num == 0) {
+            alert(`The Factorial of ${num} is: 1`);
+        }
+
+        else {
+            let fact = 1;
+            for (i = 1; i < num; i++) {
+                fact = fact * i;
+            }
+            alert(`The factorial of ${num} is: ${fact * num}`);
+        }
+    </script>
+
+</body>
+
+</html>
