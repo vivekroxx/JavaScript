@@ -25,25 +25,27 @@
 
         h1 {
             font-family: 'Segoe UI';
-            margin: 20px 0px;
+            margin: 10px;
+            font-size: 2rem;
         }
 
         #container {
-            background: darkturquoise;
             box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.438);
             padding: 50px;
-            width: 60%;
-            height: 400px;
+            margin: 50px;
             display: inline-block;
             text-align: center;
             justify-content: center;
             border-radius: 20px;
+            height: auto;
+            width: auto;
         }
 
 
         .temp-input {
             display: inline-flex;
-            height: 50%;
+            height: auto;
+            width: auto;
             padding: 10px;
             margin: 10px;
             align-items: center;
@@ -51,20 +53,31 @@
         }
 
         label {
-            font-size: 20px;
+            font-size: 1rem;
+            font-family: sans-serif;
         }
 
         .inp {
-            font-size: 20px;
+            box-shadow: inset 0px 0px 5px rgba(128, 128, 128, 0.308);
+            font-size: 1em;
             padding: 5px 10px;
             margin: 5px;
+            outline: none;
             font-weight: bold;
             border-radius: 5px;
+            transition: 0.2s;
+        }
+
+        .inp:focus,
+        .inp:hover {
+            box-shadow: inset 0px 0px 10px rgba(128, 128, 128, 0.308);
+            transition: 0.2s;
         }
     </style>
 </head>
 
 <!-- html -->
+
 <body>
     <div id="container">
         <h1>Temperature Convertor</h1>
@@ -72,6 +85,7 @@
             <label>Celcius</label>
             <input type="number" value="0" id="cel" class="inp">
         </div>
+        <b>=</b>
         <div class="temp-input">
             <label>Fahrenheit</label>
             <input type="number" value="32" id="fah" class="inp">
@@ -83,13 +97,13 @@
         let cel = document.getElementById("cel"); //select celcius input with id = "cel"
         let fah = document.getElementById("fah"); //select fahrenheit input with id = "fah"
 
-        cel.addEventListener('input', function() { //adding input eventListener to celcius input
+        cel.addEventListener('input', function () { //adding input eventListener to celcius input
             let c = this.value; //storing the celcius input in a variable c
             let f = (c * (9 / 5)) + 32; //formula to convert celcius into fahtrnheit
             fah.value = f; //put the value of f into fahrenheit input
         });
 
-        fah.addEventListener('input', function() { //adding input eventListener to fahrenheit input
+        fah.addEventListener('input', function () { //adding input eventListener to fahrenheit input
             let f = this.value; //storing the fahrenheit input in a variable f
             let c = (f - 32) * (5 / 9); //formula to convert fahtrnheit into celcius
             cel.value = c; //put the value of c into celcius input
