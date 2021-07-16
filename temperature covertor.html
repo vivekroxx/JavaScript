@@ -1,13 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temperature Convertor</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {}
+
+        #container {
+            background: cornsilk;
+            padding: 50px;
+            width: 50%;
+            height: 50%;
+            text-align: center;
+        }
+
+        .temp-input {
+            display: inline-flex;
+            height: 80%;
+            padding: 10px;
+            margin: 20px;
+            align-items: center;
+            justify-content: center;
+            /* background: cadetblue; */
+        }
+        
+    </style>
 </head>
+
 <body>
-    
-    
+    <div id="container">
+        <h1>Temperature Convertor</h1>
+        <div class="temp-input">
+            <label for="cel">Celcius</label> <br>
+            <input type="number" value="0" id="cel">
+        </div>
+        <div class="temp-input">
+            <label for="fah">Fahrenheit</label> <br>
+            <input type="number" value="32" id="fah">
+        </div>
+    </div>
+
 </body>
+
 </html>
