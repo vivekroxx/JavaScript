@@ -14,6 +14,10 @@
             border: none;
             box-sizing: border-box;
         }
+        
+        body {
+            padding: 50px;
+        }
 
         #heading {
             background: blue;
@@ -23,10 +27,7 @@
             text-align: center;
         }
 
-        body {
-            padding: 50px 200px;
-            height: 100vh;
-        }
+        
 
         #text {
             border: 2px solid blue;
@@ -46,13 +47,14 @@
 </head>
 
 <body>
-
-    <h1 id="heading">Word and Character Counter</h1>
-    <textarea id="text" cols="30" rows="10"></textarea> <br>
-    <p id="counting">
-        <span id="word">0</span>
-        Words <span id="char">0</span> Characters
-    </p>
+    <div class="container">
+        <h1 id="heading">Word and Character Counter</h1>
+        <textarea textarea style="resize: none;" id="text" cols="30" rows="10"></textarea> <br>
+        <p id="counting">
+            <span id="word">0</span>
+            Words <span id="char">0</span> Characters
+        </p>
+    </div>
 
     <script>
         let text = document.getElementById('text');
@@ -62,7 +64,7 @@
 
             char = char.trim();
             let word = char.split(" ");
-            let cleanList = word.filter(function(elem){
+            let cleanList = word.filter(function (elem) {
                 return elem != "";
             });
             document.getElementById('word').innerHTML = cleanList.length;
