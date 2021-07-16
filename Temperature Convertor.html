@@ -17,6 +17,7 @@
         }
 
         body {
+            background: black;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,11 +27,13 @@
         h1 {
             font-family: 'Segoe UI';
             margin: 10px;
+            color: white;
             font-size: 2rem;
         }
 
         #container {
-            box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.438);
+            background: rgb(36, 35, 35);
+            /* box-shadow: 0px 0px 10px rgba(10, 190, 235, 0.438); */
             padding: 50px;
             margin: 50px;
             display: inline-block;
@@ -56,6 +59,7 @@
 
         label {
             font-size: 1rem;
+            color: white;
             margin-left: 10px;
             font-family: sans-serif;
         }
@@ -64,8 +68,7 @@
             box-shadow: inset 0px 0px 5px rgba(128, 128, 128, 0.24);
             font-size: 1em;
             color: rgba(0, 0, 0, 0.746);
-            padding: 5px 10px;
-            /* border: 1px solid rgba(128, 128, 128, 0.363); */
+            padding: 5px 2px 5px 10px;
             margin: 5px;
             outline: none;
             font-weight: bold;
@@ -105,12 +108,18 @@
         cel.addEventListener('input', function () { //adding input eventListener to celcius input
             let c = this.value; //storing the celcius input in a variable c
             let f = (c * (9 / 5)) + 32; //formula to convert celcius into fahtrnheit
+            if(!Number.isInteger(f)){
+                f = f.toFixed(4);
+            }
             fah.value = f; //put the value of f into fahrenheit input
         });
 
         fah.addEventListener('input', function () { //adding input eventListener to fahrenheit input
             let f = this.value; //storing the fahrenheit input in a variable f
             let c = (f - 32) * (5 / 9); //formula to convert fahtrnheit into celcius
+            if(!Number.isInteger(c)){
+                c = c.toFixed(4);
+            }
             cel.value = c; //put the value of c into celcius input
         });
 

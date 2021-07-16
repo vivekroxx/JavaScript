@@ -60,9 +60,12 @@
             var char = this.value;
             document.getElementById('char').innerHTML = char.length;
 
-            
-            var word = this.value;
-            document.getElementById('word').innerHTML = word.length;
+            char = char.trim();
+            let word = char.split(" ");
+            let cleanList = word.filter(function(elem){
+                return elem != "";
+            });
+            document.getElementById('word').innerHTML = cleanList.length;
         });
 
     </script>
