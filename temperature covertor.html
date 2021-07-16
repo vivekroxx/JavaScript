@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temperature Convertor</title>
+
+    <!-- css -->
     <style>
         * {
             padding: 0;
@@ -62,6 +64,7 @@
     </style>
 </head>
 
+<!-- html -->
 <body>
     <div id="container">
         <h1>Temperature Convertor</h1>
@@ -75,20 +78,21 @@
         </div>
     </div>
 
+    <!-- Code -->
     <script>
-        let cel = document.getElementById("cel");
-        let fah = document.getElementById("fah");
+        let cel = document.getElementById("cel"); //select celcius input with id = "cel"
+        let fah = document.getElementById("fah"); //select fahrenheit input with id = "fah"
 
-        cel.addEventListener('input', function() {
-            let c = this.value;
-            let f = (c * (9 / 5)) + 32;
-            fah.value = f;
+        cel.addEventListener('input', function() { //adding input eventListener to celcius input
+            let c = this.value; //storing the celcius input in a variable c
+            let f = (c * (9 / 5)) + 32; //formula to convert celcius into fahtrnheit
+            fah.value = f; //put the value of f into fahrenheit input
         });
 
-        fah.addEventListener('input', function() {
-            let f = this.value;
-            let c = (f - 32) * (5 / 9);
-            cel.value = c;
+        fah.addEventListener('input', function() { //adding input eventListener to fahrenheit input
+            let f = this.value; //storing the fahrenheit input in a variable f
+            let c = (f - 32) * (5 / 9); //formula to convert fahtrnheit into celcius
+            cel.value = c; //put the value of c into celcius input
         });
 
     </script>
