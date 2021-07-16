@@ -1,6 +1,0 @@
-Javascript Project
-1. To Do list
-2. Expense Tracker
-3. Note Taker App
-4. Vowel Counter App
-5. Memory Game
