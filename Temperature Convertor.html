@@ -33,7 +33,7 @@
 
         #container {
             background: rgb(36, 35, 35);
-            /* box-shadow: 0px 0px 10px rgba(10, 190, 235, 0.438); */
+            /* box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.450); */
             padding: 50px;
             margin: 50px;
             display: inline-block;
@@ -67,7 +67,7 @@
         .inp {
             box-shadow: inset 0px 0px 5px rgba(128, 128, 128, 0.24);
             font-size: 1em;
-            color: rgba(0, 0, 0, 0.746);
+            color: rgba(0, 0, 0, 0.877);
             padding: 5px 2px 5px 10px;
             margin: 5px;
             outline: none;
@@ -82,20 +82,50 @@
             transition: 0.2s;
         }
 
+        /* theme switcher */
+        #theme{
+            position: absolute;
+            top: 50px;
+            right: 100px;
+        }
+        #light {
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid black;
+            border-radius: 100%;
+            background: white;
+        }
+
+        #dark {
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid white;
+            border-radius: 100%;
+            background: black;
+        }
+
     </style>
 </head>
 
 <!-- html -->
 
 <body>
+    <span id="theme">
+        <button id="light"></button>
+        <button id="dark"></button>
+    </span>
     <div id="container">
-        <h1>Temperature Convertor</h1>
+        <h1 id="heading">Temperature Convertor</h1>
         <div class="temp-input">
-            <label>Celcius</label> <br>
+            <label class="label">Celcius</label> <br>
             <input type="number" value="0" id="cel" class="inp">
         </div>
         <div class="temp-input">
-            <label>Fahrenheit</label> <br>
+            <label class="label">Fahrenheit</label> <br>
             <input type="number" value="32" id="fah" class="inp">
         </div>
     </div>
@@ -108,7 +138,7 @@
         cel.addEventListener('input', function () { //adding input eventListener to celcius input
             let c = this.value; //storing the celcius input in a variable c
             let f = (c * (9 / 5)) + 32; //formula to convert celcius into fahtrnheit
-            if(!Number.isInteger(f)){
+            if (!Number.isInteger(f)) {
                 f = f.toFixed(4);
             }
             fah.value = f; //put the value of f into fahrenheit input
@@ -117,10 +147,27 @@
         fah.addEventListener('input', function () { //adding input eventListener to fahrenheit input
             let f = this.value; //storing the fahrenheit input in a variable f
             let c = (f - 32) * (5 / 9); //formula to convert fahtrnheit into celcius
-            if(!Number.isInteger(c)){
+            if (!Number.isInteger(c)) {
                 c = c.toFixed(4);
             }
             cel.value = c; //put the value of c into celcius input
+        });
+
+        let dark = document.getElementById('dark');
+        dark.addEventListener('click', function(){
+            document.body.style["background-color"] = "black";
+            document.body.style["transition"] = "0.4s";
+            let contain = document.getElementById('container');
+            contain.style["background-color"] = "rgb(36, 35, 35)";
+        });
+
+        let light = document.getElementById('light');
+        light.addEventListener('click', function(){
+            document.body.style["background-color"] = "white";
+            document.body.style["transition"] = "0.4s";
+            let contain = document.getElementById('container');
+            // contain.style["background-color"] = "";
+            // contain.style["box-shadow"] = "0px 0px 10px rgba(128, 128, 128, 0.450)";
         });
 
     </script>
