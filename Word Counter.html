@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Counter</title>
+
+    <!-- CSS -->
     <style>
         * {
             padding: 0px;
@@ -14,7 +16,7 @@
             border: none;
             box-sizing: border-box;
         }
-        
+
         body {
             padding: 50px;
         }
@@ -26,8 +28,6 @@
             padding: 20px;
             text-align: center;
         }
-
-        
 
         #text {
             border: 2px solid blue;
@@ -46,6 +46,7 @@
     </style>
 </head>
 
+    <!-- html -->
 <body>
     <div class="container">
         <h1 id="heading">Word and Character Counter</h1>
@@ -54,17 +55,18 @@
             <span id="word">0</span>
             Words <span id="char">0</span> Characters
         </p>
-    </div>
+    </div>  
 
+    <!-- code -->
     <script>
         let text = document.getElementById('text');
         text.addEventListener('input', function () {
             var char = this.value;
             document.getElementById('char').innerHTML = char.length;
 
-            char = char.trim();
-            let word = char.split(" ");
-            let cleanList = word.filter(function (elem) {
+            char = char.trim(); //trim() --> used to remove spaces before and after words
+            let word = char.split(" "); //split() --> used to split words between the given character
+            let cleanList = word.filter(function (elem) {  //.filter --> used to remove spaces between character and words
                 return elem != "";
             });
             document.getElementById('word').innerHTML = cleanList.length;
