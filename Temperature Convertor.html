@@ -43,7 +43,9 @@
 
 
         .temp-input {
-            display: inline-flex;
+            display: inline;
+            float: left;
+            text-align: left;
             height: auto;
             width: auto;
             padding: 10px;
@@ -54,13 +56,16 @@
 
         label {
             font-size: 1rem;
+            margin-left: 10px;
             font-family: sans-serif;
         }
 
         .inp {
-            box-shadow: inset 0px 0px 5px rgba(128, 128, 128, 0.308);
+            box-shadow: inset 0px 0px 5px rgba(128, 128, 128, 0.24);
             font-size: 1em;
+            color: rgba(0, 0, 0, 0.746);
             padding: 5px 10px;
+            /* border: 1px solid rgba(128, 128, 128, 0.363); */
             margin: 5px;
             outline: none;
             font-weight: bold;
@@ -73,6 +78,7 @@
             box-shadow: inset 0px 0px 10px rgba(128, 128, 128, 0.308);
             transition: 0.2s;
         }
+
     </style>
 </head>
 
@@ -82,12 +88,11 @@
     <div id="container">
         <h1>Temperature Convertor</h1>
         <div class="temp-input">
-            <label>Celcius</label>
+            <label>Celcius</label> <br>
             <input type="number" value="0" id="cel" class="inp">
         </div>
-        <b>=</b>
         <div class="temp-input">
-            <label>Fahrenheit</label>
+            <label>Fahrenheit</label> <br>
             <input type="number" value="32" id="fah" class="inp">
         </div>
     </div>
