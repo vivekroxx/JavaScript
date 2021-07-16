@@ -10,6 +10,7 @@
         * {
             padding: 0;
             margin: 0;
+            border: none;
             box-sizing: border-box;
         }
 
@@ -20,26 +21,44 @@
             height: 100vh;
         }
 
-        h1 {}
+        h1 {
+            font-family: 'Segoe UI';
+            margin: 20px 0px;
+        }
 
         #container {
-            background: cornsilk;
+            background: darkturquoise;
+            box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.438);
             padding: 50px;
-            width: 50%;
-            height: 50%;
+            width: 60%;
+            height: 400px;
+            display: inline-block;
             text-align: center;
+            justify-content: center;
+            border-radius: 20px;
         }
+
 
         .temp-input {
             display: inline-flex;
-            height: 80%;
+            height: 50%;
             padding: 10px;
-            margin: 20px;
+            margin: 10px;
             align-items: center;
             justify-content: center;
-            /* background: cadetblue; */
         }
-        
+
+        label {
+            font-size: 20px;
+        }
+
+        .inp {
+            font-size: 20px;
+            padding: 5px 10px;
+            margin: 5px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
@@ -47,14 +66,32 @@
     <div id="container">
         <h1>Temperature Convertor</h1>
         <div class="temp-input">
-            <label for="cel">Celcius</label> <br>
-            <input type="number" value="0" id="cel">
+            <label>Celcius</label>
+            <input type="number" value="0" id="cel" class="inp">
         </div>
         <div class="temp-input">
-            <label for="fah">Fahrenheit</label> <br>
-            <input type="number" value="32" id="fah">
+            <label>Fahrenheit</label>
+            <input type="number" value="32" id="fah" class="inp">
         </div>
     </div>
+
+    <script>
+        let cel = document.getElementById("cel");
+        let fah = document.getElementById("fah");
+
+        cel.addEventListener('input', function() {
+            let c = this.value;
+            let f = (c * (9 / 5)) + 32;
+            fah.value = f;
+        });
+
+        fah.addEventListener('input', function() {
+            let f = this.value;
+            let c = (f - 32) * (5 / 9);
+            cel.value = c;
+        });
+
+    </script>
 
 </body>
 
