@@ -77,6 +77,7 @@
             margin-left: 5px;
             text-align: left;
             color: red;
+            transition: 0.2s;
         }
     </style>
 </head>
@@ -109,30 +110,33 @@
                 document.getElementById('userError').innerHTML = "* Minimum 3 Character Required";
                 document.getElementById('userName').style.border = "2px solid red";
                 flag = 0;
-            } else{
+            } else if (username.value.length >= 3) {
                 document.getElementById('userError').innerHTML = "";
-                document.getElementById('userName').style.border = "";
+                document.getElementById('userName').style.border = "2px solid green";
+                flag = 1;
+            } else {
+                document.getElementById('userError').innerHTML = "";
                 flag = 1;
             }
-            
+
             if (password.value == "") {
                 document.getElementById('passError').innerHTML = "* Password is Empty";
                 document.getElementById('password').style.border = "2px solid red";
                 flag = 0;
-            } else if(password.value.length < 8){
+            } else if (password.value.length < 8) {
                 document.getElementById('passError').innerHTML = "* Minimum 8 Character Required";
                 document.getElementById('password').style.border = "2px solid red";
                 flag = 0;
-            } else{
+            }
+            else {
                 document.getElementById('passError').innerHTML = "";
-                document.getElementById('password').style.border = "";
                 flag = 1;
             }
 
-            if(flag){
+            if (flag) {
                 return true;
             }
-            else{
+            else {
                 return false;
 
             }
