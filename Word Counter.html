@@ -9,20 +9,28 @@
 
     <!-- CSS -->
     <style>
-        * {
+        *, *::before, *::after{
             padding: 0px;
             margin: 0px;
             outline: none;
             border: none;
             box-sizing: border-box;
         }
+        body{
+            background: rgb(49, 48, 48);
+        }
 
-        body {
-            padding: 50px 350px;
+        .container{
+            position: absolute;
+            width: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         #heading {
-            background: green;
+            background: linear-gradient(to top right,#8052ec,#d161ff);
+            box-shadow: 0px 0px 10px #d261ff69;
             color: white;
             border-radius: 5px 5px 0px 0px;
             font-size: 30px;
@@ -31,17 +39,22 @@
         }
 
         #text {
-            border: 2px solid green;
+            border: 2px solid #8052ec;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.335);
             width: 100%;
             padding: 20px;
-            font-size: 25px;
+            font-size: 20px;
+            color: rgb(27, 26, 26);
+
         }
 
         #counting {
-            background: green;
+            background: linear-gradient(to bottom right,#8052ec,#d161ff);
+            box-shadow: 0px 0px 5px #d261ff69;
             font-size: 30px;
             border-radius: 0px 0px 5px 5px;
             color: white;
+            margin-top: -5px;
             padding: 20px;
             text-align: center;
         }
