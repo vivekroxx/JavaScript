@@ -102,11 +102,11 @@
         function validateForm() {
 
             if (username.value == "") {
-                document.getElementById('userError').innerHTML = "Username is Empty";
+                document.getElementById('userError').innerHTML = "* Username is Empty";
                 document.getElementById('userName').style.border = "2px solid red";
                 flag = 0;
             } else if (username.value.length < 3) {
-                document.getElementById('userError').innerHTML = "Minimum 3 Character Required";
+                document.getElementById('userError').innerHTML = "* Minimum 3 Character Required";
                 document.getElementById('userName').style.border = "2px solid red";
                 flag = 0;
             } else{
@@ -116,11 +116,11 @@
             }
             
             if (password.value == "") {
-                document.getElementById('passError').innerHTML = "Password is Empty";
+                document.getElementById('passError').innerHTML = "* Password is Empty";
                 document.getElementById('password').style.border = "2px solid red";
                 flag = 0;
             } else if(password.value.length < 8){
-                document.getElementById('passError').innerHTML = "Minimum 8 Character Required";
+                document.getElementById('passError').innerHTML = "* Minimum 8 Character Required";
                 document.getElementById('password').style.border = "2px solid red";
                 flag = 0;
             } else{
