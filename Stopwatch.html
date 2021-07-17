@@ -42,7 +42,7 @@
         font-size: 25px;
         color: white;
         width: 120px;
-        border-radius: 5px;
+        border-radius: 8px;
     }
 
     #start {
@@ -50,26 +50,29 @@
         margin: 0px 10px;
         transition: 0.2s;
     }
+
     #start:hover {
-        box-shadow: 0px 0px 10px rgba(105, 168, 10, 0.644);
+        box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.6);
         transition: 0.2s;
     }
 
-    #stop {
+    /* #stop {
         background: rgb(5, 112, 212);
         margin: 0px 10px;
         transition: 0.2s;
     }
+
     #stop:hover {
         box-shadow: 0px 0px 10px rgb(5, 112, 212, 0.644);
         transition: 0.2s;
-    }
+    } */
 
     #reset {
         background: rgb(214, 4, 67);
         margin: 0px 10px;
         transition: 0.2s;
     }
+
     #reset:hover {
         box-shadow: 0px 0px 10px rgb(214, 4, 67, 0.644);
         transition: 0.2s;
@@ -90,7 +93,7 @@
     </div>
     <div class="button">
         <button id="start" class="btn" onclick="start()">Start</button>
-        <button id="stop" class="btn" onclick="stop()">Stop</button>
+        <!-- <button id="stop" class="btn" onclick="stop()">Stop</button> -->
         <button id="reset" class="btn" onclick="reset()">Reset</button>
     </div>
 
@@ -105,13 +108,21 @@
         let timer = false;
 
         function start() {
-            timer = true;
-            stopwatch();
+            if (timer == true) {
+                timer = false;
+                document.getElementById('start').innerHTML = "Start";
+                document.getElementById('start').style.background = "rgb(105, 168, 10)";
+            } else {
+                timer = true;
+                document.getElementById('start').innerHTML = "Stop";
+                document.getElementById('start').style.background = "rgb(5, 112, 212)";
+                stopwatch();
+            }
         }
 
-        function stop() {
-            timer = false;
-        }
+        // function stop() {
+        //     timer = false;
+        // }
 
         function reset() {
             timer = false;
