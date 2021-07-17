@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        body {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to top right, rgba(255, 166, 0, 0.788), rgba(255, 255, 0, 0.788));
+        }
+
+        .container {
+            text-align: center;
+            padding: 10px;
+            width: auto;
+            height: auto;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        form {
+            width: 100%;
+            margin: 30px 20px;
+            padding: 20px;
+        }
+
+        .inp {
+            margin: 10px 0px;
+            box-shadow: inset 0px 0px 5px rgba(128, 128, 128, 0.507);
+            padding: 8px;
+            font-size: 15px;
+            width: 250px;
+            height: 35px;
+            border-radius: 5px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        #submit {
+            color: white;
+            background: orange;
+            border: none;
+            outline: none;
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 15px;
+            border-radius: 5px;
+        }
+
+        .error {
+            margin: 0;
+            padding: 0px;
+            margin-left: 5px;
+            text-align: left;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form onsubmit="return validateForm()">
+            <h1>Login</h1>
+            <input name="username" class="inp" id="userName" type="text" placeholder="Enter Username"> <br>
+            <p id="userError" class="error"></p>
+            <input name="password" class="inp" id="password" type="text" placeholder="Enter Password"> <br>
+            <p id="passError" class="error"></p>
+            <input id="submit" type="submit">
+        </form>
+    </div>
+
+    <script>
+        let username = document.getElementById('userName');
+        let password = document.getElementById('password');
+        let flag = 1;
+
+
+        function validateForm() {
+
+            if (username.value == "") {
+                document.getElementById('userError').innerHTML = "Username is Empty";
+                document.getElementById('userName').style.border = "2px solid red";
+                flag = 0;
+            } else if (username.value.length < 3) {
+                document.getElementById('userError').innerHTML = "Minimum 3 Character Required";
+                document.getElementById('userName').style.border = "2px solid red";
+                flag = 0;
+            } else{
+                document.getElementById('userError').innerHTML = "";
+                document.getElementById('userName').style.border = "";
+                flag = 1;
+            }
+            
+            if (password.value == "") {
+                document.getElementById('passError').innerHTML = "Password is Empty";
+                document.getElementById('password').style.border = "2px solid red";
+                flag = 0;
+            } else if(password.value.length < 8){
+                document.getElementById('passError').innerHTML = "Minimum 8 Character Required";
+                document.getElementById('password').style.border = "2px solid red";
+                flag = 0;
+            } else{
+                document.getElementById('passError').innerHTML = "";
+                document.getElementById('password').style.border = "";
+                flag = 1;
+            }
+
+            if(flag){
+                return true;
+            }
+            else{
+                return false;
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

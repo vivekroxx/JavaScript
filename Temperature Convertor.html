@@ -46,8 +46,7 @@
 
 
         .temp-input {
-            display: inline;
-            float: left;
+            display:inline-block;
             text-align: left;
             height: auto;
             width: auto;
@@ -83,11 +82,12 @@
         }
 
         /* theme switcher */
-        #theme{
+        #theme {
             position: absolute;
             top: 50px;
             right: 100px;
         }
+
         #light {
             width: 30px;
             height: 30px;
@@ -107,7 +107,6 @@
             border-radius: 100%;
             background: black;
         }
-
     </style>
 </head>
 
@@ -154,7 +153,7 @@
         });
 
         let dark = document.getElementById('dark');
-        dark.addEventListener('click', function(){
+        dark.addEventListener('click', function () {
             document.body.style["background-color"] = "black";
             document.body.style["transition"] = "0.4s";
             let contain = document.getElementById('container');
@@ -162,10 +161,10 @@
         });
 
         let light = document.getElementById('light');
-        light.addEventListener('click', function(){
+        light.addEventListener('click', function () {
             document.body.style["background-color"] = "white";
             document.body.style["transition"] = "0.4s";
-            let contain = document.getElementById('container');
+            // let contain = document.getElementById('container');
             // contain.style["background-color"] = "";
             // contain.style["box-shadow"] = "0px 0px 10px rgba(128, 128, 128, 0.450)";
         });
