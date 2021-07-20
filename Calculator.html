@@ -1,38 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn JavaScript</title>
-    </head>
-<body>
-        
-</body>
-<script>
-    const number1 = parseFloat(prompt ('Enter the first number: '));  
-    const operator = prompt('Operator to perform ( either +, -, * or / )');  
-    const number2 = parseFloat(prompt ('Enter the second number: '));  
-    
-    let result;
-   
-    if (operator == '+')
-    {
-        result = number1 + number2; 
-        }
-    else if (operator == '-')
-    {
-        result = number1 - number2;
+    <title>Calculator</title>
 
-    else if (operator == '/'){
-        result = number1 / number2;
+    <style>
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            font-family: Gotham Rounded;
+            outline: none;
+            border: none;
+            box-sizing: border-box;
         }
-    else if (operator == '*'){
-        result = number1 * number2;
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
-    else{
-            result = "Enter Valid Operation"
+
+        .calBody {
+            display: grid;
+            height: 60%;
+            width: 20%;
+            background: aliceblue;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.157)
+            ,-1px -1px 10px rgba(128, 128, 128, 0.205) ;
+        }
+
+        .CalInput {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .CalInput input {
+            border-radius: 5px;
+            height: 50px;
+            width: 100%;
+            font-size: 25px;
+            padding: 5px 8px;
+            margin: 0px 0px 10px 0px;
+        }
+
+        .keypad{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            
+        }
+
+        .keys {
+            padding: 5px 15px;
+            margin: 5px 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 25px;
+            background: seashell;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="calBody">
+        <div class="CalInput">
+            <input type="number" placeholder="0">
+        </div>
+        <div class="keypad">
+            <button class="keys" id="clear">AC</button>
+            <button class="keys" id="delete">DEL</button>
+            <button class="keys" id="div">/</button>
+            <button class="keys" id="1">1</button>
+            <button class="keys" id="2">2</button>
+            <button class="keys" id="3">3</button>
+            <button class="keys" id="mul">*</button>
+            <button class="keys" id="4">4</button>
+            <button class="keys" id="5">5</button>
+            <button class="keys" id="6">6</button>
+            <button class="keys" id="+">+</button>
+            <button class="keys" id="7">7</button>
+            <button class="keys" id="8">8</button>
+            <button class="keys" id="9">9</button>
+            <button class="keys" id="sub">-</button>
+            <button class="keys" id="dot">.</button>
+            <button class="keys" id="0">0</button>
+            <button class="keys" id="equal">=</button>
+        </div>
+    </div>
+</body>
+<!-- <script>
+    const number1 = parseFloat(prompt('Enter the first number: '));
+    const operator = prompt('Operator to perform ( either +, -, * or / )');
+    const number2 = parseFloat(prompt('Enter the second number: '));
+
+    let result;
+
+    if (operator == '+') {
+        result = number1 + number2;
     }
-    alert('Result is : ' + result);
-</script>
+    else if (operator == '-') {
+        result = number1 - number2;
+    }
+    else if (operator == '/') {
+        result = number1 / number2;
+    }
+    else if (operator == '*') {
+        result = number1 * number2;
+    }
+    else {
+        result = "Enter Valid Operation"
+    }
+    doucment.write('Result is : ' + result);
+</script> -->
+
 </html>
