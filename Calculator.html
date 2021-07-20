@@ -17,6 +17,7 @@
             outline: none;
             border: none;
             box-sizing: border-box;
+            transition: 0.4s;
         }
 
         body {
@@ -24,27 +25,28 @@
             align-items: center;
             justify-content: center;
             background: #2b2b2b;
+            padding: 20px;
             height: 100vh;
         }
-        body.light{
+
+        body.light {
             background: #c9c7c7;
         }
 
         .calBody {
-            display: grid;
-            height: 60%;
-            width: 20%;
-            /* background: aliceblue; */
+            min-height: 200px;
+            max-height: 900px;
+            max-width: 600px;
+            min-width: 200px;
             border-radius: 10px;
             padding: 20px;
-            margin: 20px;
             border-radius: 50px;
             background: #2b2b2b;
             box-shadow: 15px 15px 20px #252525,
                 -20px -20px 40px #313131;
-            ;
         }
-        body.light .calBody{
+
+        body.light .calBody {
             background: #c9c7c7;
             box-shadow: 10px 10px 15px #94939341,
                 -5px -5px 10px #9e9e9e60;
@@ -54,22 +56,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 20px 0px 20px 0px;
         }
 
         .CalInput input {
             border-radius: 5px;
             height: 50px;
-            width: 100%;
+            width: 95%;
             font-size: 25px;
             padding: 5px 8px;
-            margin: 0px 0px 10px 0px;
+            background: rgba(255, 255, 255, 0.863);
+            margin: 0px 0px 5px 0px;
             transition: 0.2s;
         }
-        .CalInput input:hover, .CalInput input:focus{
-            box-shadow: inset 0px 0px 10px rgba(27, 25, 25, 0.39);
-            transition: 0.2s;
-        }
-        body.light .CalInput input{
+
+
+        body.light .CalInput input {
             background: rgb(180, 179, 179);
             box-shadow: inset 0px 0px 5px rgba(128, 128, 128, 0.192);
             color: rgb(61, 59, 59);
@@ -81,99 +83,260 @@
             margin: 0;
         }
 
-        .keypad {
+        .keypad1 {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
+        }
 
+        .keypad2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .keypad3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .keypad4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .keypad5 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
         }
 
         .keys {
             padding: 5px 15px;
             margin: 5px 10px;
+            max-height: 100px;
+            min-height: 20px;
+            max-width: 150px;
+            min-width: 20px;
             border-radius: 5px;
+            background: rgba(255, 255, 255, 0.863);
             text-align: center;
             font-size: 25px;
             cursor: pointer;
             background: linear-radient(145deg, #c9c7c7, #efecec);
         }
-        body.light .keys{
+
+        .keys:hover {
+            background: white;
+            transition: 0s;
+        }
+        .num{
+            height: 50px;
+            width: 50px;
+        }
+        .alph{
+            height: 50px;
+        }
+
+        body.light .keys {
             background: rgb(133, 133, 133);
             color: rgb(238, 235, 235);
         }
 
-        #equal{
+        body.light .keys:hover {
+            background: rgb(95, 93, 93);
+        }
+
+        #equal {
             width: 100px;
             background: rgb(5, 127, 175);
             color: white;
         }
-        #delete{
+
+        #delete {
             background: rgb(187, 10, 10);
             color: white;
         }
-        #clear{
+
+        #clear {
             color: white;
             background: teal;
         }
 
-        body.light #equal, body.light #delete, body.light #clear{
+        body.light #equal,
+        body.light #delete,
+        body.light #clear {
             color: rgb(238, 235, 235);
+        }
+
+        #equal{
+            width: 120px;
+        }
+        #delete{
+            width: 100px;
+        }
+        #clear{
+            width: 70px;
+        }
+        #equal:hover {
+            background: rgb(7, 141, 194);
+        }
+        #delete:hover {
+            background: rgb(209, 9, 9);
+        }
+        #clear:hover {
+            background: rgb(5, 160, 160);
+        }
+
+
+
+        /* toggle theme */
+        .switch {
+            position: absolute;
+            display: inline-block;
+            width: 60px;
+            height: 33px;
+            border: 2px solid #2b2b2b;
+            border-radius: 20px;
+            box-shadow: 0 -5px 5px rgba(128, 124, 124, 0.05),
+                0 5px 5px rgba(0, 0, 0, 0.205),
+                inset 0 5px 5px rgba(20, 20, 20, 0.3);
+            right: 10%;
+            top: 5%;
+            transition: 0.4s;
+        }
+
+        body.light .switch {
+            border: 2px solid #c9c7c7;
+            box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.075),
+                0px -5px 20px rgba(0, 0, 0, 0.062),
+                inset 0px 2px 8px rgba(0, 0, 0, 0.103);
+            transition: 0.4s;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            left: 2px;
+            bottom: 1.5px;
+            height: 26px;
+            width: 26px;
+            background-color: #2b2b2b;
+            box-shadow: 0 0px 5px rgba(22, 21, 21, 0.705),
+                inset 0 0px 5px rgba(39, 37, 37, 0.246);
+            transition: 0.4s;
+        }
+
+        body.light .slider:before {
+            background-color: #c9c7c7;
+            box-shadow: 0 0px 5px rgba(12, 1, 1, 0.1);
+            transition: .4s;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+
+        /* media query */
+
+        @media only screen and (max-width: 280px){
+            .keys{
+                font-size: 15px;
+                text-align: center;
+                height: 30px;
+                width: 30px;
+                padding: 5px 10px;
+            }
+            .CalInput input{
+                height: 35px;
+                font-size: 15px;
+                margin-bottom: -2px;
+            }
         }
 
     </style>
 </head>
 
-<body >
+<body>
+
+    <label class="switch">
+        <input type="checkbox" onclick="toggleTheme()">
+        <span class="slider round"></span>
+    </label>
+
     <div class="calBody">
         <div class="CalInput">
             <input type="text" placeholder="0">
         </div>
-        <div class="keypad">
-            <button class="keys" id="clear">AC</button>
-            <button class="keys" id="delete">DEL</button>
-            <button class="keys" id="div">÷</button>
-            <button class="keys" id="1">1</button>
-            <button class="keys" id="2">2</button>
-            <button class="keys" id="3">3</button>
-            <button class="keys" id="mul">×</button>
-            <button class="keys" id="4">4</button>
-            <button class="keys" id="5">5</button>
-            <button class="keys" id="6">6</button>
-            <button class="keys" id="+">+</button>
-            <button class="keys" id="7">7</button>
-            <button class="keys" id="8">8</button>
-            <button class="keys" id="9">9</button>
-            <button class="keys" id="sub">-</button>
-            <button class="keys" id="dot">.</button>
-            <button class="keys" id="0">0</button>
-            <button class="keys" id="equal">=</button>
+        <div class="keypad1">
+            <button class="keys alph" id="clear">AC</button>
+            <button class="keys alph" id="delete">DEL</button>
+            <button class="keys num" id="div">÷</button>
+        </div>
+        <div class="keypad2">
+            <button class="keys num" id="1">1</button>
+            <button class="keys num" id="2">2</button>
+            <button class="keys num" id="3">3</button>
+            <button class="keys num" id="mul">×</button>
+        </div>
+        <div class="keypad3">
+            <button class="keys num" id="4">4</button>
+            <button class="keys num" id="5">5</button>
+            <button class="keys num" id="6">6</button>
+            <button class="keys num" id="+">+</button>
+        </div>
+        <div class="keypad4">
+            <button class="keys num" id="7">7</button>
+            <button class="keys num" id="8">8</button>
+            <button class="keys num" id="9">9</button>
+            <button class="keys num" id="sub">-</button>
+        </div>
+        <div class="keypad5">
+            <button class="keys num" id="dot">.</button>
+            <button class="keys num" id="0">0</button>
+            <button class="keys alph" id="equal">=</button>
         </div>
     </div>
 </body>
-<!-- <script>
-    const number1 = parseFloat(prompt('Enter the first number: '));
-    const operator = prompt('Operator to perform ( either +, -, * or / )');
-    const number2 = parseFloat(prompt('Enter the second number: '));
 
-    let result;
-
-    if (operator == '+') {
-        result = number1 + number2;
+<script>
+    function toggleTheme() {
+        const body = document.querySelector('body');
+        body.classList.toggle('light')
     }
-    else if (operator == '-') {
-        result = number1 - number2;
-    }
-    else if (operator == '/') {
-        result = number1 / number2;
-    }
-    else if (operator == '*') {
-        result = number1 * number2;
-    }
-    else {
-        result = "Enter Valid Operation"
-    }
-    doucment.write('Result is : ' + result);
-</script> -->
+</script>
 
 </html>
