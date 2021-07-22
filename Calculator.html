@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-
+    <script src="script.js"></script>
     <style>
         *,
         *::after,
@@ -60,11 +60,11 @@
         }
 
         .CalInput input {
-            border-radius: 5px;
+            border-radius: 50px;
             height: 50px;
-            width: 95%;
+            width: 80%;
             font-size: 25px;
-            padding: 5px 8px;
+            padding: 5px 12px;
             background: rgba(255, 255, 255, 0.863);
             margin: 0px 0px 5px 0px;
             transition: 0.2s;
@@ -121,7 +121,7 @@
             min-height: 20px;
             max-width: 150px;
             min-width: 20px;
-            border-radius: 5px;
+            border-radius: 50px;
             background: rgba(255, 255, 255, 0.863);
             text-align: center;
             font-size: 25px;
@@ -130,8 +130,8 @@
         }
 
         .keys:hover {
-            background: white;
-            transition: 0s;
+            background: yellow;
+            transition: 0.2s;
         }
         .num{
             height: 50px;
@@ -182,13 +182,13 @@
             width: 70px;
         }
         #equal:hover {
-            background: rgb(7, 141, 194);
+            background: rgb(8, 153, 211);
         }
         #delete:hover {
-            background: rgb(209, 9, 9);
+            background: rgb(223, 12, 12);
         }
         #clear:hover {
-            background: rgb(5, 160, 160);
+            background: rgb(6, 150, 150);
         }
 
 
@@ -299,44 +299,46 @@
 
     <div class="calBody">
         <div class="CalInput">
-            <input type="text" placeholder="0">
+            <input type="text" placeholder="0"  data-result>
         </div>
+
         <div class="keypad1">
-            <button class="keys alph" id="clear">AC</button>
-            <button class="keys alph" id="delete">DEL</button>
-            <button class="keys num" id="div">÷</button>
+            <button data-all-clear class="keys alph" id="clear">AC</button>
+            <button data-delete class="keys alph" id="delete">DEL</button>
+            <button data-operation class="keys num" id="div">÷</button>
         </div>
         <div class="keypad2">
-            <button class="keys num" id="1">1</button>
-            <button class="keys num" id="2">2</button>
-            <button class="keys num" id="3">3</button>
-            <button class="keys num" id="mul">×</button>
+            <button data-number class="keys num" id="1">1</button>
+            <button data-number class="keys num" id="2">2</button>
+            <button data-number class="keys num" id="3">3</button>
+            <button data-operation class="keys num" id="mul">×</button>
         </div>
         <div class="keypad3">
-            <button class="keys num" id="4">4</button>
-            <button class="keys num" id="5">5</button>
-            <button class="keys num" id="6">6</button>
-            <button class="keys num" id="+">+</button>
+            <button data-number class="keys num" id="4">4</button>
+            <button data-number class="keys num" id="5">5</button>
+            <button data-number class="keys num" id="6">6</button>
+            <button data-operation class="keys num" id="+">+</button>
         </div>
         <div class="keypad4">
-            <button class="keys num" id="7">7</button>
-            <button class="keys num" id="8">8</button>
-            <button class="keys num" id="9">9</button>
-            <button class="keys num" id="sub">-</button>
+            <button data-number class="keys num" id="7">7</button>
+            <button data-number class="keys num" id="8">8</button>
+            <button data-number class="keys num" id="9">9</button>
+            <button data-operation class="keys num" id="sub">-</button>
         </div>
         <div class="keypad5">
-            <button class="keys num" id="dot">.</button>
-            <button class="keys num" id="0">0</button>
-            <button class="keys alph" id="equal">=</button>
+            <button data-number class="keys num" id="dot">.</button>
+            <button data-number class="keys num" id="0">0</button>
+            <button data-equals class="keys alph" id="equal">=</button>
         </div>
     </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.querySelector('body');
+            body.classList.toggle('light')
+        }
+    </script>
 </body>
 
-<script>
-    function toggleTheme() {
-        const body = document.querySelector('body');
-        body.classList.toggle('light')
-    }
-</script>
 
 </html>
