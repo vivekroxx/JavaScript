@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Music Player</title>
+    <script src="https://kit.fontawesome.com/72deb4caea.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* :root{
+            --bg-color: red;
+            
+        } */
+        *,
+        *::before,
+        *::after {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            border: none;
+            list-style: none;
+            box-sizing: border-box;
+            transition: 0.4s;
+        }
+
+        body {
+            font-family: poppins;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #dde1e7;
+        }
+
+        body.light {
+            background: #091921;
+        }
+
+        .playerBody {
+            position: relative;
+            min-height: 80%;
+            max-height: 80%;
+            max-width: 60%;
+            min-width: 80%;
+            font-family: 'Quicksand', sans-serif;
+            background: #dde1e7;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin: 20px;
+            box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.246),
+                -4px -4px 10px rgba(128, 128, 128, 0.281);
+        }
+
+        body.light .playerBody {
+            background: #091921;
+            box-shadow: 20px 20px 60px #08151c,
+                -20px -20px 60px #0a1d26;
+        }
+
+        .topBar {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0px 0px 15px 0px;
+            font-size: 20px;
+            color: #091921;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        body.light .topBar {
+            color: white;
+        }
+
+        .topIcon {
+            padding: 5px 12px;
+            margin: 10px;
+            cursor: pointer;
+            color: #2e2f30;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(128, 128, 128, 0.246),
+                -2px -2px 10px rgba(128, 128, 128, 0.281);
+            ;
+        }
+
+        body.light .topIcon {
+            color: #dde1e7;
+        }
+
+        .themeToggle:active .fa-moon {
+            transform: rotate(90deg);
+            transition: 0.2s;
+        }
+
+        body.light .topIcon {
+            background: #091921;
+            box-shadow: 20px 20px 60px #08151c,
+                -20px -20px 60px #0a1d26;
+        }
+
+        .albumArt {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0px 5px 10px 5px;
+        }
+
+        .albumArt img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+
+        .SongPlaying {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            color: #091921;
+            margin: 0px 0px 10px 0px;
+        }
+
+        body.light .SongPlaying {
+            color: white;
+        }
+
+        .seekTime {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 50px 0px 10px 0px;
+            position: relative;
+            top: 30px;
+        }
+
+        body.light .time {
+            color: #dde1e7;
+        }
+
+        @media only screen and (max-width: 1300px) {
+            .seekTime {
+                position: relative;
+                top: 0px;
+            }
+        }
+
+        .time {
+            margin: 0px 20px;
+            font-weight: 600;
+            color: #091921;
+        }
+
+        .slider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0px 0px 50px 0px;
+            cursor: pointer;
+        }
+
+        .slider input[type=range] {
+            min-width: 80%;
+            max-width: 60%;
+        }
+
+        .slide input[type=range]{
+            cursor: pointer;
+        }
+
+        .playerControl {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0px 0px 15px 0px;
+        }
+
+        .controls {
+            padding: 12px;
+            margin: 0px 10px;
+            font-size: 12px;
+            color: #2e2f30;
+            scroll-behavior: smooth;
+            text-align: center;
+            background: #dde1e7;
+            border-radius: 50%;
+            box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.246),
+                -2px -2px 5px rgba(128, 128, 128, 0.281);
+        }
+
+        .arrow {
+            cursor: pointer;
+        }
+
+        body.light .controls {
+            color: white;
+            background: #091921;
+            box-shadow: 20px 20px 60px #08151c,
+                -20px -20px 60px #0a1d26;
+        }
+
+        .fa-play {
+            font-size: 28px;
+        }
+
+        .fa-step-backward {
+            font-size: 20px;
+        }
+
+        .fa-step-forward {
+            font-size: 20px;
+        }
+
+        @media only screen and (max-width: 380px) {
+            .controls {
+                padding: 12px;
+                margin: 0px 6px;
+                font-size: 8px;
+            }
+
+            .fa-play {
+                font-size: 20px;
+            }
+
+            .fa-step-backward {
+                font-size: 12px;
+            }
+
+            .fa-step-forward {
+                font-size: 12px;
+            }
+        }
+
+        @media only screen and (max-width: 280px) {
+            .topIcon {
+                padding: 5px 12px;
+                margin: 4px;
+                font-size: 10px;
+            }
+
+            .status {
+                font-size: 12px;
+            }
+
+            .SongPlaying {
+                font-size: 10px;
+                margin: 0px 0px 10px 0px;
+            }
+
+            .seekTime {
+                font-size: 10px;
+                margin-bottom: 2px;
+            }
+
+            .controls {
+                padding: 10px;
+                margin: 0px 4px;
+                font-size: 6px;
+            }
+
+            .fa-play {
+                font-size: 14px;
+            }
+
+            .fa-step-backward {
+                font-size: 10px;
+            }
+
+            .fa-step-forward {
+                font-size: 10px;
+            }
+        }
+
+        .bottomBar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bottomBar span {
+            width: 80%;
+            height: 4px;
+            background: #2e2f30;
+            ;
+            border-radius: 20px;
+            margin: 60px 0px 10px 0px;
+            box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.246),
+                -2px -2px 5px rgba(128, 128, 128, 0.281);
+        }
+
+        body.light .bottomBar span {
+            background: white;
+            box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.246),
+                -4px -4px 10px rgba(128, 128, 128, 0.281);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="playerBody">
+        <div class="topBar">
+
+            <span class="menu topIcon"> <i class="fas fa-bars"></i></span>
+            <span class="status">Music</span>
+            <span class="themeToggle topIcon" onclick="toggleTheme()"> <i class="fas fa-moon"></i> </span>
+        </div>
+
+        <div class="albumArt">
+            <span class="image"><img
+                    src="https://c4.wallpaperflare.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-preview.jpg"
+                    alt=""></span>
+        </div>
+
+        <div class="SongPlaying">
+            Ed-Shreen<br>Artist Name
+        </div>
+
+        <div class="seekTime">
+            <span class="time" id="current-time">00:00</span>
+            <span class="time" id="full-time">00:00</span>
+        </div>
+        <div class="slider">
+            <input type="range" min="0" max="100" value="0" id="slide">
+        </div>
+
+        <div class="playerControl">
+            <span class="arrow"><i class="fas fa-random controls"></i></span>
+            <span class="arrow"><i class="fas fa-step-backward controls"></i></span>
+            <span class="arrow" onclick="togglePlay()"><i class="fas fa-play controls"></i></span>
+            <span class="arrow"><i class="fas fa-step-forward controls"></i></span>
+            <span class="arrow"><i class="fas fa-redo-alt controls"></i></span>
+        </div>
+
+        <div class="bottomBar">
+            <span></span>
+        </div>
+
+    </div>
+    <script>
+
+        function toggleTheme() {
+            document.querySelector('body').classList.toggle('light');
+            document.querySelector('.fa-moon').classList.toggle('fa-sun');
+        }
+
+        function togglePlay() {
+            document.querySelector('.fa-play').classList.toggle('fa-pause');
+            console.log("hello");
+        }
+
+    </script>
+</body>
+
+</html>
