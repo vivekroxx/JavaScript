@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Knob</title>
+    <style>
+        
+        body {
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .slider::before {
+            background: linear-gradient(0deg, #525252 0%, #373737 100%);
+            width: 10em;
+            height: 10em;
+            border-radius: 50%;
+            box-shadow: 0px -10px 20px #444343,
+                0px 20px 35px #0e0d0d,
+                inset 0px 5px 6px #979797,
+                inset 0px -5px 10px #1a1919;
+        }
+
+        .slider::before,
+        .knob {
+            width: 10em;
+            height: 10em;
+            position: relative;
+        }
+
+        .knob::before,
+        .knob::after,
+        .slider::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .knob::before {
+            top: 15px;
+            left: 50%;
+            transform: translate(-50%);
+            height: 10px;
+            width: 10px;
+            background: aqua;
+            box-shadow: 0px 0px 5px aqua;
+        }
+
+        .knob::after {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid #fff;
+            width: 130%;
+            height: 130%;
+            box-shadow: 0px 0px 10px #349beb,
+                inset 0px 0px 10px #349beb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="knob"></div>
+    </div>
+
+    <script>
+
+        const knob = document.querySelector('.knob');
+
+        function calculateDegree(e) {
+            const x1 = window.innerWidth / 2;
+            const y1 = window.innerHeight / 2;
+            const x2 = e.clientX;
+            const y2 = e.clientY;
+
+            const deltaX = x1 - x2;
+            const deltaY = y1 - y2;
+
+            const rad = Math.atan2(deltaY, deltaX);
+
+            let deg = rad * (180 / Math.PI);
+            return deg;
+        }
+        knob.addEventListener("mousedown", function () {
+            knob.addEventListener("mousemove", rotate);
+            function rotate(e) {
+                const result = Math.floor(calculateDegree(e) - 90);
+                knob.style.transform = `rotate(${result}deg)`;
+            }
+            knob.addEventListener("mouseup", function () {
+                knob.removeEventListener("mousemove", rotate);
+            });
+        });
+
+    </script>
+</body>
+
+</html>
