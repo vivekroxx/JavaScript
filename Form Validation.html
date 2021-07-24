@@ -33,27 +33,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
+            border-radius: 30px;
         }
 
         form {
             width: 100%;
             margin: 30px 20px;
-            padding: 20px;
+            padding: 0px 15px;
         }
 
         .inp {
-            margin: 10px 0px;
+            margin: 14px 0px;
             box-shadow: inset 0px 0px 5px rgba(128, 128, 128, 0.507);
-            padding: 8px;
+            padding: 10px;
             font-size: 15px;
             width: 250px;
-            height: 35px;
-            border-radius: 5px;
+            height: 40px;
+            font-family: sans-serif;
+            border-radius: 8px;
+            transition: 0.4s;
         }
 
         h1 {
             margin-bottom: 20px;
+            font-family: poppins;
         }
 
         label {
@@ -66,18 +69,23 @@
             border: none;
             outline: none;
             margin-top: 10px;
-            padding: 5px 10px;
-            font-size: 15px;
-            border-radius: 5px;
+            font-family: Poppins;
+            padding: 5px 12px;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: 0.4s;
         }
 
         .error {
-            margin: 0;
             padding: 0px;
             margin-left: 5px;
+            margin-top: -10px;
             text-align: left;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: poppins;
             color: red;
-            transition: 0.2s;
+            transition: 0.4s;
         }
     </style>
 </head>
@@ -97,43 +105,42 @@
     <script>
         let username = document.getElementById('userName');
         let password = document.getElementById('password');
-        let flag = 1;
+        let x, y;
 
 
         function validateForm() {
 
             if (username.value == "") {
                 document.getElementById('userError').innerHTML = "* Username is Empty";
-                document.getElementById('userName').style.border = "2px solid red";
-                flag = 0;
+                document.getElementById('userName').style.border = "3px solid red";
+                x = 0;
             } else if (username.value.length < 3) {
                 document.getElementById('userError').innerHTML = "* Minimum 3 Character Required";
-                document.getElementById('userName').style.border = "2px solid red";
-                flag = 0;
+                document.getElementById('userName').style.border = "3px solid red";
+                x = 0;
             } else if (username.value.length >= 3) {
                 document.getElementById('userError').innerHTML = "";
-                document.getElementById('userName').style.border = "2px solid green";
-                flag = 1;
-            } else {
-                document.getElementById('userError').innerHTML = "";
-                flag = 1;
+                document.getElementById('userName').style.border = "3px solid green";
+                x = 1;
             }
+            
 
             if (password.value == "") {
                 document.getElementById('passError').innerHTML = "* Password is Empty";
-                document.getElementById('password').style.border = "2px solid red";
-                flag = 0;
+                document.getElementById('password').style.border = "3px solid red";
+                y = 0;
             } else if (password.value.length < 8) {
                 document.getElementById('passError').innerHTML = "* Minimum 8 Character Required";
-                document.getElementById('password').style.border = "2px solid red";
-                flag = 0;
+                document.getElementById('password').style.border = "3px solid red";
+                y = 0;
             }
-            else {
+            else if (password.value.length >= 8) {
                 document.getElementById('passError').innerHTML = "";
-                flag = 1;
+                document.getElementById('password').style.border = "3px solid green";
+                y = 1;
             }
 
-            if (flag) {
+            if (x && y) {
                 return true;
             }
             else {
