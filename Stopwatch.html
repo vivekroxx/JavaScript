@@ -10,8 +10,8 @@
 <style>
     * {
         box-sizing: border-box;
-        padding: 0;
-        margin: 0;
+        padding: 0px;
+        margin: 0px;
         transition: 0.4s;
     }
 
@@ -19,6 +19,7 @@
         background: rgb(29, 28, 28);
         display: flex;
         flex-direction: column;
+        flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
         height: 100vh;
@@ -26,35 +27,34 @@
     }
 
     .container {
-        /* display: flex;
-        justify-content: center; */
-        color: silver;
-        font-size: 1.5rem;
+        color: rgb(219, 216, 216);
         font-weight: bold;
-        font-family: Gotham Rounded;
     }
 
     .txt {
-        font-size: 10rem;
-        font-weight: bold;
-        font-family: initial;
+        font-size: 15vw;
+    }
+
+    .text {
+        font-size: 2vw;
+        font-family: Gotham Rounded;
     }
 
     .btn {
         outline: none;
         border: none;
         cursor: pointer;
-        font-size: 1.5rem;
+        font-size: 1.8vw;
         font-family: Gotham Rounded;
         color: white;
-        width: 100px;
-        height: 100px;
+        width: 8vw;
+        height: 8vw;
         border-radius: 50%;
     }
 
     #start {
         background: rgb(105, 168, 10);
-        margin: 0px 10px;
+        margin: 0px 2vw;
         transition: 0.2s;
     }
 
@@ -65,7 +65,6 @@
 
     #reset {
         background: rgb(214, 4, 67);
-        margin: 0px 10px;
         transition: 0.2s;
     }
 
@@ -75,20 +74,45 @@
     }
 
     .button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
+
+    /* @media screen and (max-width: 500px){
+        .txt {
+        font-size: 5rem;
+    }
+    .btn{
+        font-size: 0.8rem;
+        width: 50px;
+        height: 50px;
+    }
+    .text{
+        font-size: 0.8rem;
+    }
+    }
+
+    @media screen and (max-width: 360px){
+        .txt {
+        font-size: 3rem;
+    }
+    .btn{
+        font-size: 0.8rem;
+        width: 50px;
+        height: 50px;
+    }
+    .text{
+        font-size: 0.8rem;
+    }
+    } */
 </style>
 
 
 <body>
     <div class="container">
-        <span class="txt" id="hr">00</span>Hr
-        <span class="txt" id="min">00</span>Min
-        <span class="txt" id="sec">00</span>Sec
+        <span class="txt" id="hr">00</span> <span class="text">Hr</span> 
+        <span class="txt" id="min">00</span> <span class="text">Min</span>
+        <span class="txt" id="sec">00</span> <span class="text">Sec</span>
         <span class="txt" id="count">00</span>
     </div>
 
