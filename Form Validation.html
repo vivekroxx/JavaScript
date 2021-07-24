@@ -111,7 +111,7 @@
         function validateForm() {
 
             if (username.value == "") {
-                document.getElementById('userError').innerHTML = "* Username is Empty";
+                document.getElementById('userError').innerHTML = "* Username Cannot Empty";
                 document.getElementById('userName').style.border = "3px solid red";
                 x = 0;
             } else if (username.value.length < 3) {
@@ -126,7 +126,7 @@
             
 
             if (password.value == "") {
-                document.getElementById('passError').innerHTML = "* Password is Empty";
+                document.getElementById('passError').innerHTML = "* Password Cannot Empty";
                 document.getElementById('password').style.border = "3px solid red";
                 y = 0;
             } else if (password.value.length < 8) {
