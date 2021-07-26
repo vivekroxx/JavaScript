@@ -133,11 +133,13 @@
             background: yellow;
             transition: 0.2s;
         }
-        .num{
+
+        .num {
             height: 50px;
             width: 50px;
         }
-        .alph{
+
+        .alph {
             height: 50px;
         }
 
@@ -172,44 +174,50 @@
             color: rgb(238, 235, 235);
         }
 
-        #equal{
+        #equal {
             width: 120px;
         }
-        #delete{
+
+        #delete {
             width: 100px;
         }
-        #clear{
+
+        #clear {
             width: 70px;
         }
+
         #equal:hover {
             background: rgb(8, 153, 211);
         }
+
         #delete:hover {
             background: rgb(223, 12, 12);
         }
+
         #clear:hover {
             background: rgb(6, 150, 150);
         }
 
 
 
-        /* toggle theme */
+        /* toggle theme Switcher */
         .switch {
             position: absolute;
             display: inline-block;
             width: 59px;
-            height: 32px;
+            height: 33px;
+            right: 10%;
+            top: 5%;
             border: 2px solid #2b2b2b;
+            background-color: #2b2b2b;
             border-radius: 10px;
             box-shadow: 0 -5px 5px rgba(128, 124, 124, 0.05),
                 0 5px 5px rgba(0, 0, 0, 0.205),
                 inset 0 5px 5px rgba(20, 20, 20, 0.3);
-            right: 10%;
-            top: 5%;
-            transition: 0.4s;
         }
 
         body.light .switch {
+            background-color: #c9c7c7;
             border: 2px solid #c9c7c7;
             box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.075),
                 0px -5px 20px rgba(0, 0, 0, 0.062),
@@ -217,14 +225,14 @@
             transition: 0.4s;
         }
 
-        /* Hide default HTML checkbox */
+        /* Hiding default HTML checkbox */
         .switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
 
-        /* The slider */
+        /* The sliding box */
         .slider {
             position: absolute;
             cursor: pointer;
@@ -232,7 +240,7 @@
             top: 0;
             left: 0;
             right: 0;
-            transition: .4s;
+            border-radius: 7px;
         }
 
         .slider:before {
@@ -242,13 +250,13 @@
             bottom: 1.2px;
             height: 26px;
             width: 26px;
+            border-radius: 7px;
             background-color: #2b2b2b;
             box-shadow: 0 0px 5px rgba(22, 21, 21, 0.705),
                 inset 0 0px 5px rgba(39, 37, 37, 0.246);
-            transition: 0.4s;
         }
 
-        body.light .slider:before {
+        body.light .slider::before {
             background-color: #c9c7c7;
             box-shadow: 0 0px 5px rgba(12, 1, 1, 0.1);
             transition: .4s;
@@ -260,51 +268,49 @@
             transform: translateX(26px);
         }
 
-        /* Rounded sliders */
-        .slider.round::after {
+        /* slider light */
+        .lights::after {
             content: '';
             position: relative;
             display: block;
             top: 7.8px;
             left: 22px;
+            z-index: 10;
             background-color: aqua;
             box-shadow: 0px 0px 2px rgb(0, 255, 255);
             width: 2px;
             height: 12px;
             border-radius: 10px;
         }
-        input:checked + .slider.round::after{
+
+        input:checked+.lights::after {
             -webkit-transform: translateX(26px);
             -ms-transform: translateX(26px);
             transform: translateX(26px);
         }
-        body.light .slider.round::after{
-           background-color: blueviolet;
-           box-shadow: 0px 0px 2px rgba(137, 43, 226, 0.548);
-        }
 
-        .slider.round:before {
-            border-radius: 7px;
+        body.light .lights::after {
+            background-color: blueviolet;
+            box-shadow: 0px 0px 2px rgba(137, 43, 226, 0.548);
         }
-
 
         /* media query */
 
-        @media only screen and (max-width: 280px){
-            .keys{
+        @media only screen and (max-width: 280px) {
+            .keys {
                 font-size: 15px;
                 text-align: center;
                 height: 30px;
                 width: 30px;
                 padding: 5px 10px;
             }
-            .CalInput input{
+
+            .CalInput input {
                 height: 35px;
                 font-size: 15px;
                 margin-bottom: -2px;
             }
         }
-
     </style>
 </head>
 
@@ -312,12 +318,12 @@
 
     <label class="switch">
         <input type="checkbox" onclick="toggleTheme()">
-        <span class="slider round"></span>
+        <span class="slider lights"></span>
     </label>
 
     <div class="calBody">
         <div class="CalInput">
-            <input type="text" placeholder="0"  data-result>
+            <input type="text" placeholder="0" data-result>
         </div>
 
         <div class="keypad1">

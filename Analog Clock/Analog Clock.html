@@ -11,7 +11,7 @@
         * {
             margin: 0;
             padding: 0;
-            /* box-sizing: border-box; */
+            box-sizing: border-box;
             outline: none;
             border: none;
         }
@@ -191,10 +191,10 @@
         .slider:before {
             position: absolute;
             content: "";
-            left: 4px;
-            bottom: 4px;
-            height: 26px;
-            width: 26px;
+            left: 2px;
+            bottom: 1.4px;
+            height: 27px;
+            width: 27px;
             background-color: #091921;
             border-radius: 2px solid #091921;
             box-shadow: 0 0px 5px rgba(12, 1, 1, 0.705),
@@ -205,7 +205,7 @@
         body.light .slider:before {
             background-color: white;
             box-shadow: 0 0px 5px rgba(12, 1, 1, 0.1);
-            transition: .4s;
+            transition: 0.4s;
         }
 
         input:checked+.slider {
@@ -214,9 +214,9 @@
         }
 
         input:checked+.slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
+            -webkit-transform: translateX(24px);
+            -ms-transform: translateX(24px);
+            transform: translateX(24px);
         }
 
         /* Rounded sliders */
@@ -250,7 +250,7 @@
     </div>
 
 
-    <script defer>
+    <script async>
         function toggleTheme() {
             const body = document.querySelector('body');
             body.classList.toggle('light')
