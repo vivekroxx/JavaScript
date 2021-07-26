@@ -205,11 +205,16 @@
             position: absolute;
             display: inline-block;
             width: 59px;
+<<<<<<< HEAD
             height: 33px;
             right: 10%;
             top: 5%;
             border: 2px solid #2b2b2b;
             background-color: #2b2b2b;
+=======
+            height: 32px;
+            border: 2px solid #2b2b2b;
+>>>>>>> 6cd49ce9786ae38329524fd22cadcc1b2a964cb0
             border-radius: 10px;
             box-shadow: 0 -5px 5px rgba(128, 124, 124, 0.05),
                 0 5px 5px rgba(0, 0, 0, 0.205),
@@ -268,25 +273,49 @@
             transform: translateX(26px);
         }
 
+<<<<<<< HEAD
         /* slider light */
         .lights::after {
+=======
+        /* Rounded sliders */
+        .slider.round::after {
+>>>>>>> 6cd49ce9786ae38329524fd22cadcc1b2a964cb0
             content: '';
             position: relative;
             display: block;
             top: 7.8px;
             left: 22px;
+<<<<<<< HEAD
             z-index: 10;
+=======
+>>>>>>> 6cd49ce9786ae38329524fd22cadcc1b2a964cb0
             background-color: aqua;
             box-shadow: 0px 0px 2px rgb(0, 255, 255);
             width: 2px;
             height: 12px;
             border-radius: 10px;
+<<<<<<< HEAD
         }
 
         input:checked+.lights::after {
             -webkit-transform: translateX(26px);
             -ms-transform: translateX(26px);
             transform: translateX(26px);
+=======
+        }
+        input:checked + .slider.round::after{
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+        body.light .slider.round::after{
+           background-color: blueviolet;
+           box-shadow: 0px 0px 2px rgba(137, 43, 226, 0.548);
+        }
+
+        .slider.round:before {
+            border-radius: 7px;
+>>>>>>> 6cd49ce9786ae38329524fd22cadcc1b2a964cb0
         }
 
         body.light .lights::after {
@@ -323,7 +352,11 @@
 
     <div class="calBody">
         <div class="CalInput">
+<<<<<<< HEAD
             <input type="text" placeholder="0" data-result>
+=======
+            <input type="text" placeholder="0"  data-result>
+>>>>>>> 6cd49ce9786ae38329524fd22cadcc1b2a964cb0
         </div>
 
         <div class="keypad1">
