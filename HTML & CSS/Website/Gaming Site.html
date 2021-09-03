@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>Joy Pool</title>
+
+
+    <style>
+        *,
+        body {
+            padding: 0px;
+            margin: 0px;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .topBar {
+            background-color: solid white;
+            margin-top: 10px;
+            height: 50px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.158);
+            border-bottom: 1px solid rgba(128, 128, 128, 0.096);
+        }
+
+        .searchBar {
+            margin: 0 auto;
+            position: relative;
+            left: 25%;
+            transform: translateX(-70%);
+
+            /* display: flex;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%); */
+        }
+
+        #searchbox {
+            width: 300px;
+            background-color: rgba(128, 128, 128, 0.055);
+            border-radius: 10px;
+            font-weight: bold;
+            padding: 8px 20px;
+            transition: 0.2s;
+            box-shadow: inset 0px 0px 5px rgba(128, 128, 128, 0.13);
+        }
+
+        input[type="text"]::placeholder {
+            color: rgba(128, 128, 128, 0.432);
+            font-weight: bolder;
+        }
+
+        #searchbox:hover,
+        #searchbox:focus {
+            background-color: rgba(128, 128, 128, 0.103);
+            border-radius: 20px;
+            transition: 0.2s;
+        }
+
+        .navBar {
+            margin: 10px 500px;
+            height: 50px;
+            display: flex;
+            border-radius: 50px;
+            background-color:rgba(128, 128, 128, 0.13);
+            align-items: center;
+            box-shadow: inset 0px 0px 5px rgba(128, 128, 128, 0.144);
+            align-content: center;
+        }
+
+        .navButtons {
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+            align-content: center;
+            /* border: 2px solid black; */
+        }
+
+        /* .option{
+            margin: 0 auto;
+            align-items: center;
+            align-content: center;
+            height: 100px;
+            width: 100px;
+            border: 2px solid red;
+        } */
+
+        #navbtn {
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-weight: bolder;
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.144);
+            margin: 5px;
+            transition: 0.5s;
+        }
+
+        #navbtn:hover {
+            /* background-color: rgba(128, 128, 128, 0.253); */
+            color: white;
+            background-color: rgba(0, 0, 255, 0.596);
+            /* box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.425); */
+            transition: 0.5s;
+        }
+
+        #navbtn:active{
+            background-color: rgba(0, 0, 255, 0.596);
+            transition: 0.5s;
+            color: white;
+
+        }
+        #navbtn:focus{
+            background-color:rgba(0, 0, 255, 0.596);
+            transition: 0.5s;
+            color: white;
+        }
+
+        .profile img {
+            margin-left: 20px;
+            margin-top: 2px;
+        }
+
+        .fa {
+            transition: 0.15s;
+        }
+
+        .fa:hover {
+            color: rgb(64, 64, 233);
+            transition: 0.15s;
+        }
+
+        .fa-search {
+            transition: 0.15s;
+            padding: 4px;
+            padding-left: 2px;
+            border-radius: 5px;
+        }
+
+        .fa-search:hover {
+            color: rgb(64, 64, 233);
+            transition: 0.15s;
+        }
+
+        .object {
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+            align-content: center;
+            height: 60px;
+            width: 60px;
+            padding: 30px;
+            margin: 20px;
+            background-color: rgba(128, 128, 128, 0.267);
+        }
+
+        .city-container {
+            display: grid;
+            overflow: scroll;
+            display: grid;
+            grid-gap: 250px;
+            grid-auto-flow: row;
+            margin: 20px;
+            padding: 10px;
+            grid-template-columns: repeat(10, 50px);
+            /* grid-template-rows: repeat(5, 0px); */
+        }
+
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .city {
+            height: 192px;
+            width: 240px;
+            /* margin: 10px; */
+            padding: 5px;
+            align-items: center;
+            text-align: center;
+            font-size: 12px;
+            justify-content: center;
+            border-radius: 15px;
+            box-shadow: 1px 1px 5px 0px rgba(128, 128, 128, 0.445);
+        }
+
+        .city-image img {
+            height: 135px;
+            width: 230px;
+            margin-top: 10px;
+            border-radius: 15px;
+            transition: 0.5s;
+            animation: cityImage 1.5s ease;
+        }
+
+        .city-image img:hover {
+            transform: scale(1.03);
+            transition: 0.3s;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.39);
+
+        }
+
+        @keyframes cityImage {
+            0% {
+                opacity: 0%;
+                transform: translateY(5px);
+            }
+
+            100% {
+                opacity: 100%;
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topBar">
+        <div class="profile">
+            <img src="https://cdn2.iconfinder.com/data/icons/bold-ui/100/link-512.png" alt="logo" style="height: 30px;">
+        </div>
+
+        <div class="searchBar">
+            <form action="#">
+                <input type="text" placeholder="Search..." name="search" id="searchbox">
+                <i class="fa fa-search"></i>
+            </form>
+        </div>
+
+        <div class="topMenu">
+            <i class="fa fa-facebook-square" aria-hidden="true" style="margin-right: 20px; font-size: 20px;"></i>
+            <i class="fa fa-google-plus" aria-hidden="true" style="margin-right: 20px; font-size: 20px;"></i>
+            <i class="fa fa-envelope-o" aria-hidden="true" style="margin-right: 20px; font-size: 20px;"> </i>
+            <i class="fa fa-heart-o" aria-hidden="true" style="margin-right: 20px; font-size: 20px;"></i>
+            <button id="navbtn" style="background-color: rgb(64, 64, 233); color: white;">Login</button>
+            <button id="navbtn" style="margin-right: 20px;">Register</button>
+            <i class="fa fa-sliders" aria-hidden="true" style="margin-right: 20px; font-size: 20px;"> </i>
+        </div>
+    </div>
+
+
+
+    <div class="navBar">
+        <div class="navButtons">
+            <div class="option"><button id="navbtn">Category</button></div>
+            <div class="option"><button id="navbtn">Download</button></div>
+            <div class="option"><button id="navbtn">Purchase</button></div>
+        </div>
+    </div>
+
+
+
+    <div class="contentBox1">
+        <div class="city-container">
+            <div class="city">
+                <h1> Arcade </h1>
+                <div class="city-image"><img
+                        src="https://i.ytimg.com/vi/6zCkQZ7UKTo/maxresdefault.jpg"
+                        alt="">
+                </div>
+            </div>
+            <div class="city">
+                <h1> Shooting </h1>
+                <div class="city-image"> <img
+                        src="https://www.techperx.com/wp-content/uploads/2020/01/Best-Shooting-Games-for-Android-2020.jpg"
+                        alt=""></div>
+            </div>
+            <div class="city">
+                <h1> Simulation</h1>
+                <div class="city-image"> <img
+                        src="https://i2.wp.com/www.sagernotebook.com/blog/wp-content/uploads/2017/05/Management-Simulation-Games.jpg?fit=628%2C355&ssl=1"
+                        alt=""></div>
+            </div>
+            <div class="city">
+                <h1> Strategy</h1>
+                <div class="city-image"><img
+                        src="https://www.lifewire.com/thmb/zqrOXgFqOxCBBPa_zKtegC8I2F4=/1920x1080/filters:no_upscale():max_bytes(150000):strip_icc()/offlinestrategy-8bitarmies-5bffbc9c46e0fb0026330f43.jpg"
+                        alt=""> </div>
+            </div>
+            <div class="city">
+                <h1> Sport</h1>
+                <div class="city-image"><img
+                        src="https://x-tech.am/wp-content/uploads/2014/03/f3.jpg"
+                        alt=""> </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="city-container">
+            <div class="city">
+                <h1> Puzzle</h1>
+                <div class="city-image"> <img
+                        src="https://img.dtcn.com/image/digitaltrends/catherine-2-500x500.jpg"
+                        alt="">
+                </div>
+            </div>
+            <div class="city">
+                <h1> Action</h1>
+                <div class="city-image"><img src="https://gameranx.com/wp-content/uploads/2018/06/action-games.jpg"
+                        alt=""> </div>
+            </div>
+            <div class="city">
+                <h1> Zombie</h1>
+                <div class="city-image"><img src="https://www.gamingscan.com/wp-content/uploads/2020/10/Best-Zombie-Games.jpg">
+                </div>
+            </div>
+            <div class="city">
+                <h1> Horror</h1>
+                <div class="city-image"><img
+                        src="https://www.pcgamesn.com/wp-content/uploads/2019/02/Metro-Exodus-PC-review-15-900x506.jpg"
+                        alt=""> </div>
+            </div>
+            <div class="city">
+                <h1> Adventure</h1>
+                <div class="city-image"> <img
+                        src="https://www.digitalbyte.co.za/wp-content/uploads/sites/3/2018/05/cszczsc-1024x576.jpg"
+                        alt=""></div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="city-container">
+            <div class="city">
+                <h1> Multi-Player</h1>
+                <div class="city-image"> <img src="https://qph.fs.quoracdn.net/main-qimg-f3805b5a59f1b5ee5cb0233cd1c9dcc0"
+                        alt=""></div>
+            </div>
+            <div class="city">
+                <h1> Open World</h1>
+                <div class="city-image"> <img
+                        src="https://www.pcgamesn.com/wp-content/uploads/2019/01/best-open-world-games-header.jpg" alt=""></div>
+            </div>
+            <div class="city">
+                <h1> Racing</h1>
+                <div class="city-image"><img
+                        src="https://linuxhint.com/wp-content/uploads/2020/07/1-3.jpg"
+                        alt=""> </div>
+            </div>
+            <div class="city">
+                <h1> Space</h1>
+                <div class="city-image"> <img
+                        src="https://www.pcgamesn.com/wp-content/uploads/2018/07/best-space-games.jpg"
+                        alt=""></div>
+            </div>
+            <div class="city">
+                <h1> Hunting</h1>
+                <div class="city-image"> <img
+                        src="https://www.vodytech.com/wp-content/uploads/2020/09/Best-Hunting-Games-for-iPhone-and-iPad.jpg"
+                        alt=""></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

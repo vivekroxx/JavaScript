@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>knmodi.in</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        a{
+            list-style: none;
+            text-decoration: none;
+            color: black;
+            transition: 0.2s;
+        }
+        .navhead:hover{
+            transform: translateX(10px) scale(1.05);
+            transition: 0.2s;
+        }
+        .navhead:hover img{
+            transform: translateX(-5px) scale(1.05);
+            transition: 0.2s;
+        }
+
+        .top-nav {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            color: #000;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .searchbar{
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+                }
+
+        .side-nav {
+            width: 220px;
+            height: 100vh;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: scroll;
+            overflow-x: hidden;
+            /* align-items: center; */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-list li {
+            list-style: none;
+            transition: 0.2s;
+            margin-top: 20px;
+            margin-left: 20px;
+            font-size: 20px;
+            /* display: inline; */
+            transition: 0.2s;
+        }
+
+        .nav-list ul {
+            display: flex;
+            flex-direction: column;
+            transition: 0.2s;
+        }
+
+        .nav-list a:hover {
+            background-color: coral;
+            font-size: 22px;
+            color: white;
+            padding: 4px;
+            border-radius: 5px;
+            transform: scale(1.05);
+            box-shadow: 0px 0px 4px rgba(255, 127, 80, 0.582);
+            transition: 0.2s;
+        }
+
+        .nav-list li:hover img {
+            transform: translateX(-4px) scale(1.2);
+            transition: 0.2s;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            list-style: none;
+            padding: 2px;
+            color: black;
+            transition: 0.2s;
+        }
+
+        .logo {
+            flex: 1;
+            display: flex;
+        }
+
+        .setting {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 25px;
+            margin-bottom: 5px;
+        }
+
+        .setting img {
+            transition: 0.6s;
+        }
+
+
+        .setting img:hover {
+            transform: scale(1.1) rotate(180deg);
+            transition: 0.6s;
+        }
+        .setting img:active{
+            transform: scale(0.8) rotate(-60deg);
+            transition: 0.6s;
+        }
+        .profile img{
+            margin-right: 30px;
+            transition: 0.3s;
+        }
+        .profile img:hover{
+            transform: scale(1.2);
+            transition: 0.3s;
+        }
+
+
+        #inline img {
+            transition: 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-nav">
+        <span class="logo"> <img
+                src="https://img.collegedekhocdn.com/media/img/institute/logo/14_6_2014_14_19_21_mrkr29tt6h6bdj7pargnotqsd6_hcn90svd.jpg"
+                height="40px" style=" margin-left:30px; ">
+            <a class="navhead" href="#"> <h1 style=" margin-left: 5px;">DR KNMIET</h1> </a>
+        </span>
+        <span class="searchbar">
+            <input type="text" placeholder="search">
+        </span>
+        <span>
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3524/3524659.svg"
+                style="height: 25px; opacity: 70%; margin-top:5px;">
+        </span>
+        <span class="profile">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3135/3135715.svg"
+                style="height: 35px; opacity: 70%; margin-top:5px;">
+        </span>
+    </header>
+
+    <div class="side-nav">
+        <div class="nav-list">
+            <ul>
+               <li id="inline"> <img class="sidenav-img"
+                        src="https://www.flaticon.com/svg/static/icons/svg/3681/3681792.svg" height="20px"> <a href="#">
+                        Home </a></li>
+                <li id="inline"> <img src="https://www.flaticon.com/svg/static/icons/svg/3666/3666893.svg"
+                        height="20px"> <a href="#"> Attendance </a></li>
+                <li id="inline"> <img src="https://www.flaticon.com/svg/static/icons/svg/3677/3677209.svg"
+                        height="20px"> <a href="#"> Library </a></li>
+                <li id="inline"> <img src="https://www.flaticon.com/svg/static/icons/svg/1820/1820017.svg"
+                        height="20px"> <a href="#"> Fees </a></li>
+                <li id="inline"> <img src="https://www.flaticon.com/svg/static/icons/svg/3643/3643707.svg"
+                        height="20px"> <a href="#"> Events </a></li>
+                <li id="inline"> <img src="https://www.flaticon.com/svg/static/icons/svg/3127/3127363.svg"
+                        height="20px"> <a href="#"> Holiday </a></li>
+                <li id="inline"> <img src="https://www.flaticon.com/svg/static/icons/svg/3618/3618668.svg"
+                        height="20px"> <a href="#"> Exams </a></li>
+                <li id="inline"> <img src="https://www.flaticon.com/svg/static/icons/svg/3649/3649795.svg"
+                        height="22px"> <a href="#"> Help </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-page">
+
+    </div>
+
+</body>
+
+</html>

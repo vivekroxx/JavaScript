@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- font awesome cdn link -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Website Layout</title>
+    <style>
+        * {
+            padding: 0;
+            border: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0;
+            border: 0;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .wrapper {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* navigation bar area */
+        .header {
+            height: 50px;
+            margin: 10px;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* navigation menu */
+        .big {
+            width: 79%;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            float: left;
+            z-index: 100;
+            background-color: aliceblue;
+        }
+
+        /* search bar area */
+        .small {
+            width: 20%;
+            display: inline-block;
+            height: 50px;
+            float: right;
+            box-sizing: border-box;
+            border-radius: 5px;
+            background-color: aliceblue;
+            /* box-shadow: inset 1px 5px 10px 0px rgba(0, 0, 0, 0.322); */
+        }
+
+        .searchbar input {
+            float: left;
+            height: 50px;
+            width: 236.7px;
+            box-sizing: border-box;
+            padding: 10px;
+            border-radius: 5px;
+            border-right: 0px;
+            background-color: none;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            transition: 0.2s;
+            box-shadow: inset 1px 1px 5px 0px rgba(128, 128, 128, 0.445);
+        }
+        .searchbar input:hover, .searchbar input:focus{
+            box-shadow: inset 2px 2px 8px 2px rgba(128, 128, 128, 0.445);
+            transition: 0.3s;
+        }
+
+        /* search icon */
+        .search-image img {
+            height: 25px;
+            width: 25px;
+            float: right;
+            margin-right: 18px;
+            transition: 0.2s;
+        }
+
+        /* search bar button */
+        .searchbtn {
+            height: 50px;
+            width: 66.5px;
+            border-left: 0px;
+            border-radius: 5px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            background-color: chartreuse;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .searchbtn img {
+            transition: 0.2s;
+        }
+
+        .searchbtn:active {
+            background-color: #156ee2;
+            transition: 0.2s;
+        }
+
+        .searchbtn:hover {
+            box-shadow: 1px 0px 3px 0px chartreuse;
+            transition: 0.2s ease;
+        }
+
+        .searchbtn:hover img {
+            transform: translate(2px, 2px);
+            transition: 0.2s;
+            filter: drop-shadow(-1px 2px 2.5px gray);
+        }
+
+        .searchbtn:active img {
+            transform: translate(-1px, -1px);
+            transition: 0.2s;
+        }
+
+        /* image sliding area */
+        .content {
+            height: 500px;
+            background-color: aliceblue;
+            margin-bottom: 20px;
+            margin: 10px;
+            z-index: 10;
+            border-radius: 5px;
+            position: relative;
+            box-shadow: inset 1px 1px 5px 0px rgba(128, 128, 128, 0.445);
+        }
+
+        .slide {
+            border-radius: 5px;
+        }
+
+        /* two block area */
+        .post {
+            height: 400px;
+            border-radius: 5px;
+            margin: 10px;
+            /* box-shadow: inset 1px 1px 10px 0px rgba(0, 0, 0, 0.322); */
+        }
+
+        .post-1 {
+            width: 49.6%;
+            height: 400px;
+            float: left;
+            /* background-color: aliceblue; */
+            border-radius: 5px;
+            box-shadow: inset 1px 1px 5px 0px rgba(128, 128, 128, 0.445);
+        }
+
+        .post-2 {
+            width: 49.6%;
+            height: 400px;
+            float: right;
+            /* background-color: aliceblue; */
+            border-radius: 5px;
+            box-shadow: inset 1px 1px 5px 0px rgba(128, 128, 128, 0.445);
+        }
+
+        /* footer area */
+        .footer {
+            height: 250px;
+            /* background-color: aliceblue; */
+            margin-top: 20px;
+            margin-bottom: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: inset 1px 1px 5px 0px rgba(128, 128, 128, 0.445);
+        }
+
+        /* image sliding animation */
+        .slide-image {
+            height: 500px;
+            z-index: 8;
+        }
+
+        .slide-image img {
+            transition: 0.2s;
+        }
+
+        #slider {
+            overflow: hidden;
+        }
+
+        #slider figure {
+            position: relative;
+            width: 500%;
+            margin: 0;
+            left: 0;
+            animation: 20s slider infinite;
+        }
+
+        #slider figure img {
+            width: 20%;
+            float: left;
+            transition: 0.2s;
+        }
+
+        /* image slider animation keyframe */
+        @keyframes slider {
+            0% {
+                left: 0;
+            }
+
+            10% {
+                left: 0;
+            }
+
+            20% {
+                left: -100%;
+            }
+
+            30% {
+                left: -100%;
+            }
+
+            40% {
+                left: -200%;
+            }
+
+            50% {
+                left: -200%;
+            }
+
+            60% {
+                left: -300%;
+            }
+
+            70% {
+                left: -300%;
+            }
+
+            80% {
+                left: -400%;
+            }
+
+            90% {
+                left: -400%;
+            }
+
+            100% {
+                right: -500%;
+            }
+        }
+
+        /* slider image previous and next button */
+        /* previous button */
+        #prevBtn {
+            top: 44%;
+            left: 2%;
+            position: absolute;
+            z-index: 10;
+            border: 0px;
+            border-radius: 5px;
+            font-size: 25px;
+            color: rgba(0, 0, 0, 0.274);
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+        #prevBtn img {
+            width: 40px;
+            height: 40px;
+            top: 42%;
+            left: 2%;
+            position: absolute;
+            z-index: 10;
+            opacity: 0.8;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #prevBtn img:hover {
+            opacity: 80%;
+            transform: scale(1.2) translate(-2px, -2px);
+        }
+
+        #prevBtn:active {
+            transform: translate(-3px, 0px);
+            transition: 0.2s;
+        }
+
+        #prevBtn:hover {
+            opacity: 100%;
+        }
+
+        /* next button */
+        #nextBtn {
+            top: 44%;
+            right: 2%;
+            position: absolute;
+            z-index: 10;
+            border: 0px;
+            border-radius: 5px;
+            font-size: 25px;
+            color: rgba(0, 0, 0, 0.274);
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+        #nextBtn img {
+            width: 40px;
+            height: 40px;
+            top: 42%;
+            right: 2%;
+            position: absolute;
+            z-index: 10;
+            opacity: 0.8;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #nextBtn img:hover {
+            opacity: 80%;
+            transform: scale(1.2) translate(2px, -2px);
+        }
+
+        #nextBtn:hover {
+            opacity: 100%;
+        }
+
+        #nextBtn:active {
+            transform: translate(3px, 0px);
+            transition: 0.2s;
+        }
+
+        button {
+            background: none;
+        }
+
+        /* navigation bar menu text */
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            height: 50px;
+            border-radius: 5px;
+            justify-content: space-around;
+            line-height: 50px;
+            background-color: black;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16.7px;
+        }
+
+        /* vertical blue line on navigation bar */
+        li {
+            float: left;
+            border-right: 1px solid #156ee2;
+            justify-content: space-around;
+        }
+
+        li:last-child {
+            border-right: none;
+        }
+
+        li:first-child {
+            border-right: none;
+        }
+
+        .submenu1 li:first-child {
+            border-right: 1px solid #156ee2;
+        }
+
+        /* blue color effect on navigation bar */
+        a {
+            display: block;
+            padding: 0 31.31px;
+            color: white;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        a:hover,
+        .active a {
+            background-color: #156ee2;
+            box-shadow: 0px 0px 5px 2px #156ee298;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            transform: scale(1.08);
+            transition: 0.2s;
+            padding: 0 20px;
+        }
+
+        #sportpad:hover {
+            transform: scale(1.08) translateX(2.9px);
+            padding: 0 27.5px;
+            transition: 0.2s;
+        }
+
+
+        /* submenu1 display on hovering the navigation */
+        .submenu1 {
+            display: none;
+            transition: 0.2s;
+            z-index: 100;
+        }
+
+        .big li:hover .submenu1 {
+            display: block;
+            position: absolute;
+            transition: 0.2s;
+        }
+
+        /*navbar icons rotation */
+        .fa {
+            transition: 0.2s;
+        }
+
+        a:hover .fa {
+            transform: scaleY(-1);
+        }
+
+        .big a:hover .fa-home {
+            transform: none;
+        }
+
+        .big li:hover .fa-caret-down {
+            transform: scaleY(-1);
+        }
+
+        .big li:hover .fa-home {
+            transform: translateX(-4px) scale3d(1.1, 1.1, 1.1);
+            transition: 0.2s;
+        }
+
+        button {
+            border: hidden;
+            outline: none;
+        }
+
+        input {
+            border: hidden;
+            outline: none;
+        }
+
+        /* #H1::before{
+            content:'';
+            display: block;
+            background: red;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+
+        } */
+        .product-slider {
+            height: 240px;
+            display: flex;
+            overflow: scroll;
+            overflow-y: hidden;
+            align-items: center;
+            margin: 10px;
+            border-radius: 5px;
+            align-items: center;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .product {
+            height: 220px;
+            width: 200px;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0px 2px 5px 0px rgba(128, 128, 128, 0.445);
+        }
+
+        .product-image img {
+            border-radius: 5px;
+            width: 180px;
+            height: 170px;
+            transition: 0.5s;
+            animation: product 2s ease;
+        }
+
+        /* product image animation */
+        @keyframes product {
+            0% {
+                opacity: 0%;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 100%;
+                transform: translateY(0px);
+            }
+        }
+
+        .product-image img:hover {
+            transform: scale(1.05);
+            transition: 0.2s;
+        }
+
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-top: 2px;
+            font-size: 16px;
+            color: gray;
+            transition: 0.2s;
+        }
+
+        /* making responsive website for tablet */
+        @media screen and (max-width: 1024px) {
+
+            .slide-container {
+                height: 300px;
+            }
+
+            .slide-container img {
+                height: 300px;
+            }
+
+            .post {
+                height: 200px;
+            }
+
+            .post-1 {
+                height: 200px;
+            }
+
+            .post-2 {
+                height: 200px;
+            }
+
+            .footer {
+                height: 180px;
+            }
+
+            #nextBtn img {
+                width: 28px;
+                height: 28px;
+            }
+
+            #prevBtn img {
+                width: 28px;
+                height: 28px;
+            }
+
+            .product-slider {
+                height: 200px;
+            }
+
+            .product {
+                height: 180px;
+                width: 160px;
+            }
+
+            .product-image img {
+                width: 140px;
+                height: 130px;
+
+            }
+
+            h3 {
+                font-size: 12px;
+                margin-top: 6px;
+            }
+
+            .header {
+                height: 30px;
+            }
+
+            .big {
+                height: 30px;
+                width: 84%;
+            }
+
+            .small {
+                height: 30px;
+                width: 15%;
+            }
+
+            .searchbar input {
+                height: 30px;
+                width: 82.2px;
+                font-size: 12px;
+            }
+
+            .search-image img {
+                height: 10px;
+                width: 10px;
+                margin-right: 10px;
+            }
+
+            /* search bar button */
+            .searchbtn {
+                height: 30px;
+                width: 30px;
+            }
+
+            /* navigation bar */
+            ul {
+                height: 30px;
+                font-size: 10px;
+                line-height: 30px;
+            }
+
+            li {
+                border-right: 0.5px solid #156ee2;
+            }
+
+            .submenu1 li:first-child {
+                border-right: 0.5px solid #156ee2;
+            }
+
+            a {
+                padding: 0 13px;
+            }
+
+            a:hover {
+                padding: 0 8px;
+            }
+
+            #sportpad:hover {
+                padding: 0 12.9px;
+            }
+
+        }
+
+        /* making responsive website for phone */
+        @media screen and (max-width: 600px) {
+
+            .slide-container {
+                height: 200px;
+            }
+
+            .slide-container img {
+                height: 200px;
+            }
+
+            .post {
+                height: 180px;
+            }
+
+            .post-1 {
+                height: 180px;
+            }
+
+            .post-2 {
+                height: 180px;
+            }
+
+            .footer {
+                height: 100px;
+            }
+
+            #nextBtn img {
+                width: 22px;
+                height: 22px;
+            }
+
+            #prevBtn img {
+                width: 22px;
+                height: 22px;
+            }
+
+            .product-slider {
+                height: 180px;
+            }
+
+            .product {
+                height: 160px;
+                width: 140px;
+            }
+
+            .product-image img {
+                width: 120px;
+                height: 110px;
+
+            }
+
+            h3 {
+                font-size: 10px;
+                margin-top: 10px;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- <h1 id="H1">Hello</h1> -->
+
+        <div class="header">
+            <div class="big">
+                <ul>
+                    <li id="homeactive" class="active"> <a href="#"><i class="fa fa-home"></i>
+                            Home </a> </li>
+                    <li> <a href="#"> Fashion <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <div class="submenu1">
+                            <ul>
+                                <li><a href="#">Men</a></li>
+                                <li><a href="#">Women</a></li>
+                                <li><a href="#">Child</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li> <a href="#"> Smartphone <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <div class="submenu1">
+                            <ul>
+                                <li><a href="#">Phones</a></li>
+                                <li><a href="#">Cases</a></li>
+                                <li><a href="#">Charger</a></li>
+                                <li><a href="#">Tempered</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li> <a href="#"> Grocery <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <div class="submenu1">
+                            <ul>
+                                <li><a href="#">Rice</a></li>
+                                <li><a href="#">Flour</a></li>
+                                <li><a href="#">Cooking Oil</a></li>
+                                <li><a href="#">Cookies</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li> <a href="#"> Electronics <i class="fa fa-caret-down" aria-hidden="true"></i> </a>
+                        <div class="submenu1">
+                            <ul>
+                                <li><a href="#">TV</a></li>
+                                <li><a href="#">Refrigerator</a></li>
+                                <li><a href="#">Washing Machine</a></li>
+                                <li><a href="#">Grinder</a></li>
+                                <li><a href="#">Power Tools</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li> <a href="#"> Gadgets <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <div class="submenu1">
+                            <ul>
+                                <li><a href="#">Headphone</a></li>
+                                <li><a href="#">Speakers</a></li>
+                                <li><a href="#">Home Safe</a></li>
+                                <li><a href="#">Alexa</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li> <a id="furnitureborder" href="#"> Furniture <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </a>
+                        <div class="submenu1">
+                            <ul>
+                                <li><a href="#">Homes</a></li>
+                                <li><a href="#">Offices</a></li>
+                                <li><a href="#">Kitchen</a></li>
+                                <li><a href="#">Rooms</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li> <a id="sportpad" href="#"> Sports <i class="fa fa-caret-down" aria-hidden="true"></i> </a>
+                        <div class="submenu1">
+                            <ul>
+                                <li><a href="#">Shoes</a></li>
+                                <li><a href="#">Track-Suit</a></li>
+                                <li><a href="#">Tools</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="small">
+                <div class="searchbar"> <input type="text" placeholder="Search"> </div>
+                <div class="search-image">
+                    <button class="searchbtn"><img src="https://www.flaticon.com/svg/static/icons/svg/860/860824.svg"
+                            alt="search">
+                </div>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="carousel content slide-container">
+        <div class="slide fade" id="slider">
+            <figure>
+                <img class="slide-image"
+                    src="https://images.unsplash.com/photo-1419064642531-e575728395f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
+                <img class="slide-image"
+                    src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80">
+                <img class="slide-image"
+                    src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80">
+                <img class="slide-image"
+                    src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1127&q=80">
+                <img class="slide-image"
+                    src="https://images.unsplash.com/photo-1444930694458-01babf71870c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1130&q=80">
+            </figure>
+        </div>
+        <button class="slide-button prev" id="prevBtn"><img
+                src="https://www.flaticon.com/svg/static/icons/svg/318/318477.svg"> </button>
+        <button class="slide-button next" id="nextBtn"> <img
+                src="https://www.flaticon.com/svg/static/icons/svg/318/318476.svg"> </button>
+    </div>
+    <!-- <div class="dots-container">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div> -->
+
+    <!-- product slider -->
+
+    <div class="product-slider">
+
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MRXJ2?wid=1144&hei=1144&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1551489675083"
+                    alt="airpods"> </div>
+            <h3>Air-Pods</h3>
+        </div>
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://image-us.samsung.com/SamsungUS/pim/migration/mobile/mobile-accessories/phones/ep-pg920ibugus/Pdpdefault-ep-pg920ibugus-600x600-C1-052016.jpg?$bu-pdp-image-mobile-jpg$"
+                    alt="wireless charger"> </div>
+            <h3>Samsung Wireless</h3>
+        </div>
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MTPK2_VW_34FR+watch-44-alum-silver-nc-se_VW_34FR_WF_CO?wid=750&hei=712&trim=1,0&fmt=p-jpg&qlt=80&op_usm=0.5,0.5&.v=1566419578393,1600814822000"
+                    alt="apple watch"> </div>
+            <h3>Apple Watch</h3>
+        </div>
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp13touch-silver-select-202005?wid=892&hei=820&&qlt=80&.v=1587459986844"
+                    alt="mac-book"> </div>
+            <h3>Mac-Book</h3>
+        </div>
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://www.apple.com/newsroom/images/product/homepod/standard/Apple_homepod-mini-white-siri_10132020_inline.jpg.large.jpg"
+                    alt="siri speaker"> </div>
+            <h3>Siri Speaker</h3>
+        </div>
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://www.apple.com/newsroom/images/product/ipad/standard/apple_ipados14_widgets_062220_big.jpg.large.jpg"
+                    alt="ipad"> </div>
+            <h3>iPad</h3>
+        </div>
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MHXH3?wid=1144&hei=1144&fmt=jpeg&qlt=80&op_usm=0.5,0.5&.v=1601662968000"
+                    alt="wireless charger"> </div>
+            <h3>Wireless Charger</h3>
+        </div>
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://images-na.ssl-images-amazon.com/images/I/5103Xi7yQgL._SX466_.jpg" alt="iPhone 12">
+            </div>
+            <h3>iPhone 12</h3>
+        </div>
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQYmBb3Ax0uDIekUaqXSxf29wVZwCSenGPK9w&usqp=CAU"
+                    alt="iPhone 12"> </div>
+            <h3>Smart TV</h3>
+        </div>
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://images-na.ssl-images-amazon.com/images/I/61k1jK9XwVL._SL1500_.jpg" alt="iPhone 12">
+            </div>
+            <h3>Realme Buds</h3>
+        </div>
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://www.primeabgb.com/wp-content/uploads/2019/02/GT83-Titan-8RG-1.jpg" alt="iPhone 12">
+            </div>
+            <h3>Gaming Laptop</h3>
+        </div>
+
+        <div class="product">
+            <div class="product-image"> <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSR--iG_sa8LOYp4L1259mbUIyDH81_mCvLjA&usqp=CAU"
+                    alt="iPhone 12"> </div>
+            <h3>Gaming Console</h3>
+        </div>
+
+    </div>
+
+
+
+    <div class="post">
+        <div class="post-1">
+        </div>
+
+        <div class="post-2"> </div>
+    </div>
+
+    <div class="footer"> </div>
+
+    </div>
+
+</body>
+
+</html>

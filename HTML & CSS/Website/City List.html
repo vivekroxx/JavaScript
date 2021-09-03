@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <title>Indian Cities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .city-container {
+            display: grid;
+            overflow: scroll;
+            display: grid;
+            grid-gap: 250px;
+            grid-auto-flow: row;
+            margin: 20px;
+            padding: 10px;
+            grid-template-columns: repeat(10, 50px);
+            /* grid-template-rows: repeat(5, 0px); */
+        }
+
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .city {
+            height: 192px;
+            width: 240px;
+            /* margin: 10px; */
+            padding: 5px;
+            align-items: center;
+            text-align: center;
+            font-size: 16px;
+            justify-content: center;
+            border-radius: 15px;
+            box-shadow: 1px 1px 5px 0px rgba(128, 128, 128, 0.445);
+        }
+
+        .city-image img {
+            height: 135px;
+            width: 235px;
+            margin-top: 8px;
+            border-radius: 10px;
+            transition: 0.5s;
+            animation: cityImage 1.5s ease;
+        }
+
+        .city-image img:hover {
+            transform: scale(1.03);
+            transition: 0.3s;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.39);
+
+        }
+
+        @keyframes cityImage {
+            0% {
+                opacity: 0%;
+                transform: translateY(5px);
+            }
+
+            100% {
+                opacity: 100%;
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="city-container">
+        <div class="city">
+            <h1> Delhi </h1>
+            <div class="city-image"><img
+                    src="https://www.silverkris.com/wp-content/uploads/2018/04/New-Delhi-1920x1069-960x530.jpg" alt="">
+            </div>
+        </div>
+        <div class="city">
+            <h1> Ghaziabad </h1>
+            <div class="city-image"> <img
+                    src="https://teja12.kuikr.com/is/p/t20/1280x800/public/images/gallery/city_masthead/176/Ghaziabad_Masthead_2.jpg"
+                    alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Mumbai</h1>
+            <div class="city-image"> <img
+                    src="https://cdn.britannica.com/26/84526-050-45452C37/Gateway-monument-India-entrance-Mumbai-Harbour-coast.jpg"
+                    alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Agra</h1>
+            <div class="city-image"><img
+                    src="https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/09/Best-time-to-visit-Agra-3.jpg"
+                    alt=""> </div>
+        </div>
+        <div class="city">
+            <h1> Lucknow</h1>
+            <div class="city-image"><img
+                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/b5/28/7c/chhota-imambara.jpg?w=1000&h=600&s=1"
+                    alt=""> </div>
+        </div>
+        <div class="city">
+            <h1> Chandigarh</h1>
+            <div class="city-image"> <img
+                    src="https://pix10.agoda.net/hotelImages/1177009/0/2bc396a2469b0c74242b3d3f63479111.jpg?s=1024x768"
+                    alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Banglore</h1>
+            <div class="city-image"> <img
+                    src="https://content.techgig.com/photo/75078073/bengaluru-remains-the-best-city-for-it-professionals-techgig-survey.jpg?622082"
+                    alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Bhopal</h1>
+            <div class="city-image"> <img
+                    src="https://www.iamrenew.com/wp-content/uploads/2019/04/Sanchi-Stupa-in-Bhopal.jpg" alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Faridabad</h1>
+            <div class="city-image"> <img
+                    src="https://www.vatikacollections.com/offices/mathura-road/vatika-mindscapes/images/n-2.jpg?v=1.2"
+                    alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Patna</h1>
+            <div class="city-image"> <img
+                    src="https://www.aai.aero/sites/default/files/city_info_image/Patna-Museum.jpg" alt=""></div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="city-container">
+        <div class="city">
+            <h1> Kolkata</h1>
+            <div class="city-image"> <img
+                    src="https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/01/Victoria-Memorial.jpg" alt="">
+            </div>
+        </div>
+        <div class="city">
+            <h1> Jaipur</h1>
+            <div class="city-image"><img src="https://www.micato.com/wp-content/uploads/2018/09/jaipur-1110x700.jpg"
+                    alt=""> </div>
+        </div>
+        <div class="city">
+            <h1> Hyderabad</h1>
+            <div class="city-image"><img src="https://www.phuse.eu/documents//2019-sdes/hyderabad-20635.png" alt="">
+            </div>
+        </div>
+        <div class="city">
+            <h1> Chennai</h1>
+            <div class="city-image"><img
+                    src="https://flightitineraryforvisa.com/wp-content/uploads/2019/09/german-consulate-chennai.jpg"
+                    alt=""> </div>
+        </div>
+        <div class="city">
+            <h1> Pune</h1>
+            <div class="city-image"> <img
+                    src="https://im.whatshot.in/img/2019/Mar/800px-university-of-pune-main-building-3-cropped-1551691604.jpg"
+                    alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Kanpur</h1>
+            <div class="city-image"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ99JM7vWsG5qZroqWPyUSu1A9hONjXC8mGKQ&usqp=CAU"
+                    alt=""> </div>
+        </div>
+        <div class="city">
+            <h1> Allahbad</h1>
+            <div class="city-image"> <img
+                    src="https://sabrangindia.in/sites/default/files/field/image/barandbench_import_2019_10_Allahabad-High-Court-2.jpg"
+                    alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Kota</h1>
+            <div class="city-image"> <img src="https://www.rajras.in/wp-content/uploads/2016/10/Chambal-Canyon.jpg" alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Noida</h1>
+            <div class="city-image"> <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSI-pQO9xAiWI5FmOVq9b0pbGURWQ2ELUJxVw&usqp=CAU"
+                    alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Jammu</h1>
+            <div class="city-image"> <img
+                    src="https://k6u8v6y8.stackpathcdn.com/blog/wp-content/uploads/2014/02/Top-Things-to-Do-in-Jammu-and-Kashmir.jpg"
+                    alt=""></div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="city-container">
+        <div class="city">
+            <h1> Udaipur</h1>
+            <div class="city-image"> <img src="https://thecreativepost.co.in/wp-content/uploads/2020/08/Cover.jpg"
+                    alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Jhansi</h1>
+            <div class="city-image"> <img src="https://prod-c2i.s3.amazonaws.com/articles/14830283815865379ddd6d6.jpg"
+                    alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Kochi</h1>
+            <div class="city-image"><img
+                    src="https://pix10.agoda.net/hotelImages/6890306/0/b23ff35f2777e2a2c8ea5897ca44a0a4.jpg?s=1024x768"
+                    alt=""> </div>
+        </div>
+        <div class="city">
+            <h1> Bikaner</h1>
+            <div class="city-image"> <img
+                    src="https://media.architecturaldigest.in/wp-content/uploads/2019/10/Bikaner-Avani-Rai-fetaured-image.jpg"
+                    alt=""></div>
+        </div>
+        <div class="city">
+            <h1> Surat</h1>
+            <div class="city-image"> <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/04/Pandit_DinDayal_Upadhyay_Indoor_Stadium%2CSurat.jpg"
+                    alt=""></div>
+        </div>
+
+        <div class="city">
+            <h1> Amritser</h1>
+            <div class="city-image"> <img src="https://static.toiimg.com/photo/53393616.cms" alt=""></div>
+        </div>
+
+        <div class="city">
+            <h1> Coimbatore</h1>
+            <div class="city-image"> <img
+                    src="https://cdn1.goibibo.com/voy_ing/t_fs/tamil-nadu-coimbatore-149343899978o.jpeg"></div>
+        </div>
+
+        <div class="city">
+            <h1> Vadodara</h1>
+            <div class="city-image"> <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Laxmi_Vilas_Palace%2C_Vadodara.jpg"></div>
+        </div>
+
+        <div class="city">
+            <h1> Nashik</h1>
+            <div class="city-image"> <img
+                    src="https://www.incredibleindia.org/content/dam/incredibleindia/images/places/nashik/nashik-trimbakeshwar-10.jpg/jcr:content/renditions/cq5dam.web.1024.576.jpeg">
+            </div>
+        </div>
+
+        <div class="city">
+            <h1> Madurai</h1>
+            <div class="city-image"> <img
+                    src="https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/03/Meenakshi-Temple.jpg"></div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
